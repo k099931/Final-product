@@ -14,8 +14,16 @@ class CreateRubbersTable extends Migration
     public function up()
     {
         Schema::create('rubbers', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+            $table->increments('id');
+            $table->string('maker' , 20);
+            $table->string('name' , 30);
+            $table->string('image' , 100);
+            $table->double('speed' , 3 , 1);
+            $table->double('spin' , 3 , 1);
+            $table->double('hardness' , 3 , 1);
+            $table->integer('price');
+            $table->integer('user_id');
+            
         });
     }
 
