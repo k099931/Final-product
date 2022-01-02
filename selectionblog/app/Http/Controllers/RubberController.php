@@ -11,5 +11,12 @@ class RubberController extends Controller
     {
         return view('rubbers/index')->with(['rubbers' => $rubber->get()]);
     }
+    
+    public function show(Rubber $rubber)
+    {
+        return view('rubbers/show')->with(['rubber' => $rubber]);
+    }
+
+    
 }
 ?>

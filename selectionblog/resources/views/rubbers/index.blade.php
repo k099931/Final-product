@@ -29,7 +29,9 @@
               <hr size="5" color="red">
                  <div class='flex'>
                      <figure class="image"><img src="{{ $rubber->image }}" width="105" height="112"></figure>
-                     <h2 class='right'>・{{ $rubber->name }}</h2>
+                     <h2 class='right'>
+                         <a href="/rubbers/{{ $rubber->id }}">・{{ $rubber->name }}</a>
+                     </h2>
                  </div>
             @endforeach
         </div>    
