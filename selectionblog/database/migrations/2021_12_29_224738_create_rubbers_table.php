@@ -18,8 +18,8 @@ class CreateRubbersTable extends Migration
             $table->string('maker' , 20);
             $table->string('name' , 30);
             $table->string('image' , 100);
-            $table->double('speed' , 3 , 1);
-            $table->double('spin' , 3 , 1);
+            $table->double('speed' , 4 , 2);
+            $table->double('spin' , 4 , 2);
             $table->double('hardness' , 3 , 1);
             $table->integer('price');
             $table->integer('user_id');
