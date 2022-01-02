@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function() {
-    return view('rubbers/index');
-});
+Route::get('/', 'RubberController@index');
+
+?>

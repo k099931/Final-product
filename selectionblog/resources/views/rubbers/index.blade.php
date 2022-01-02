@@ -23,13 +23,15 @@
     </head>
     <body>
         <div class='rubbers'>
-           <hr size="5" color="red">
-           <h1>&emsp;メーカー名</h1>
-           <hr size="5" color="red">
-              <div class='flex'>
-                  <figure class="image"><img src="https://selectionblog.s3.us-east-2.amazonaws.com/Rubber/Fastarc+G-1.png" width="105" height="112"></figure>
-                  <h2 class='right'>・ラバー名</h2>
-              </div>
+            @foreach ($rubbers as $rubber)
+              <hr size="5" color="red">
+              <h1>&emsp;{{ $rubber->maker }}</h1>
+              <hr size="5" color="red">
+                 <div class='flex'>
+                     <figure class="image"><img src="{{ $rubber->image }}" width="105" height="112"></figure>
+                     <h2 class='right'>・{{ $rubber->name }}</h2>
+                 </div>
+            @endforeach
         </div>    
     </body>
 </html>
