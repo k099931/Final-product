@@ -38,16 +38,22 @@
         <div class='evaluation'>
             <span style="border-bottom: solid 2px blue;">
                 <h1>皆の評価</h1>
+                <div class="comments">
+                    
+                </div>
             </span>
             <form action="/rubbers" method="POST">
                 @csrf
                 <div class="comment">
                     <h2>コメント</h2>
-                    <textarea name=rubbercomment["comment"] placeholder="素晴らしいラバーです。"></textarea>
+                    <textarea name="rubbercomment[comment]" placeholder="素晴らしいラバーです。">{{ old('rubbercomment.comment') }}</textarea>
+                    <p class="comment_error" style="color:red">{{ $errors->first('rubbercomment.comment') }}</p>
+                    <input type="hidden" name="rubbercomment[rubber_id]" value="{{ $rubber->id}}">
                 </div>
                 <input type="submit" value="保存"/>
             </form>
         </div>
+        
         <div class="footer">
             <a href="/">戻る</a>
         </div>

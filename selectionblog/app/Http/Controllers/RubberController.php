@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Rubber;
-use Illuminate\Http\Request;
 use App\Rubbercomment;
+use Illuminate\Http\Request;
+use App\Http\Requests\RubberCommentRequest;
 
 class RubberController extends Controller
 {
     public function index(Rubber $rubber)
     {
-        return view('rubbers/index')->with(['rubbers' => $rubber->get()]);
+        return view('rubbers/index')->with(['rubbers' => $rubber->orderByMaker()]);
     }
     
     public function show(Rubber $rubber)
@@ -18,16 +19,15 @@ class RubberController extends Controller
         return view('rubbers/show')->with(['rubber' => $rubber]);
     }
 
-    public function store(Request $request, Rubbercomment $rubbercomment)
+    public function store(Rubbercomment $rubbercomment, RubberCommentRequest $request)
     {
-        $input = $request['rubbercomment'];
-        //$route = $request->route();
         //$url_path = $route->getPath();
         //$url_parts = explode('/', $url_path);
         //$url_tail = end($url_parts);
-        //$rubbercomment->rubber_id = $url_tail;
+        $input = $request['rubbercomment'];
         $rubbercomment->fill($input)->save();
-        return redirect('/rubbers/' . $rubbercomment->id);
+        return redirect('/rubbers/' . $rubbercomment->rubber_id);
     }
+
 }
 ?>
