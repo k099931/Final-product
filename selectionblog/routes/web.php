@@ -13,5 +13,6 @@
 
 Route::get('/', 'RubberController@index');
 Route::get('/rubbers/{rubber}', 'RubberController@show');
+Route::post('/rubbers', 'RubberController@store');
 
 ?>

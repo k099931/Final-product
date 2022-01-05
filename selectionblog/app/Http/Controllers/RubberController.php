@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Rubber;
 use Illuminate\Http\Request;
+use App\Rubbercomment;
 
 class RubberController extends Controller
 {
@@ -17,6 +18,16 @@ class RubberController extends Controller
         return view('rubbers/show')->with(['rubber' => $rubber]);
     }
 
-    
+    public function store(Request $request, Rubbercomment $rubbercomment)
+    {
+        $input = $request['rubbercomment'];
+        //$route = $request->route();
+        //$url_path = $route->getPath();
+        //$url_parts = explode('/', $url_path);
+        //$url_tail = end($url_parts);
+        //$rubbercomment->rubber_id = $url_tail;
+        $rubbercomment->fill($input)->save();
+        return redirect('/rubbers/' . $rubbercomment->id);
+    }
 }
 ?>

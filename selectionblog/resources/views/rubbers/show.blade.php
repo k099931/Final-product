@@ -43,7 +43,7 @@
                 @csrf
                 <div class="comment">
                     <h2>コメント</h2>
-                    <textarea name="evaluation[comment]" placeholder="素晴らしいラバーです。"></textarea>
+                    <textarea name=rubbercomment["comment"] placeholder="素晴らしいラバーです。"></textarea>
                 </div>
                 <input type="submit" value="保存"/>
             </form>
