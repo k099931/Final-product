@@ -27,12 +27,14 @@
               <hr size="5" color="red">
               <h1>&emsp;{{ $rubber->maker }}</h1>
               <hr size="5" color="red">
+                 @foreach ($rubbers as $rubber)
                  <div class='flex'>
                      <figure class="image"><img src="{{ $rubber->image }}" width="105" height="112"></figure>
                      <h2 class='right'>
                          <a href="/rubbers/{{ $rubber->id }}">・{{ $rubber->name }}</a>
                      </h2>
                  </div>
+                 @endforeach
             @endforeach
         </div>    
     </body>
