@@ -23,7 +23,9 @@
         </style>
     </head>
     <body>
+        <hr size="5" color="red">
         <h1>{{ $rubber->maker }}&emsp;/&emsp;{{ $rubber->name }}</h1>
+        <hr size="5" color="red">
         <div class='flex'>
             <figure class='image'><img src="{{ $rubber->image }}" width="280" height="300"></figure>
             <span style="border-bottom: solid 2px blue;">
@@ -37,18 +39,29 @@
         </div>
         <div class='evaluation'>
             <span style="border-bottom: solid 2px blue;">
+                <hr size="5" color="red">
                 <h1>皆の評価</h1>
+                <hr size="5" color="red">
                 <div class="comments">
-                    
+                    @foreach ($rubbercomments as $rubbercomment)
+                       <div class="comment">
+                           @if( $rubbercomment->rubber_id === $rubber->id )
+                              <h2 class="comment">{{ $rubbercomment->comment }}</h2>
+                              <p class="created">{{ $rubbercomment->created_at }}</p><br>
+                           @endif
+                       </div>
+                    @endforeach
                 </div>
             </span>
             <form action="/rubbers" method="POST">
                 @csrf
-                <div class="comment">
+                <div class="create">
+                    <hr size="5" color="red">
                     <h2>コメント</h2>
+                    <hr size="5" color="red">
                     <textarea name="rubbercomment[comment]" placeholder="素晴らしいラバーです。">{{ old('rubbercomment.comment') }}</textarea>
                     <p class="comment_error" style="color:red">{{ $errors->first('rubbercomment.comment') }}</p>
-                    <input type="hidden" name="rubbercomment[rubber_id]" value="{{ $rubber->id}}">
+                    <input type="hidden" name="rubbercomment[rubber_id]" value="{{ $rubber->id }}">
                 </div>
                 <input type="submit" value="保存"/>
             </form>

@@ -10,5 +10,10 @@ class Rubbercomment extends Model
         'comment',
         'rubber_id',
         ];
+        
+        public function orderById()
+        {
+                return $this->orderBy('rubber_id', 'DESC')->get();
+        }
 }
 ?>

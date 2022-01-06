@@ -14,9 +14,9 @@ class RubberController extends Controller
         return view('rubbers/index')->with(['rubbers' => $rubber->orderByMaker()]);
     }
     
-    public function show(Rubber $rubber)
+    public function show(Rubber $rubber, Rubbercomment $rubbercomment)
     {
-        return view('rubbers/show')->with(['rubber' => $rubber]);
+        return view('rubbers/show')->with(['rubber' => $rubber, 'rubbercomments' => $rubbercomment->orderById()]);
     }
 
     public function store(Rubbercomment $rubbercomment, RubberCommentRequest $request)

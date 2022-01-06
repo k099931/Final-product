@@ -6,9 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rubber extends Model
 {
-   public function orderByMaker
+   public function orderByMaker()
    {
-       return $this->orderBy('maker', 'DESC')->get();
-
+      return $this->orderBy('maker', 'DESC')->get();
    }
 }
+
+?>
