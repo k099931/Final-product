@@ -12,7 +12,12 @@
 */
 
 Route::get('/', 'RubberController@index');
+Route::get('/', 'RucketController@index');
 Route::get('/rubbers/{rubber}', 'RubberController@show');
+Route::get('/ruckets/{rucket}', 'RucketController@show');
 Route::post('/rubbers', 'RubberController@store');
+Route::post('/ruckets', 'RucketController@store');
+Route::delete('/rubbers/{rubber}', 'RubberController@delete');
+Route::delete('/ruckets/{rucket}', 'RucketController@delete');
 
 ?>

@@ -5,18 +5,19 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Rubbercomment extends Model
+class RucketComment extends Model
 {
         use SoftDeletes;
         
+        protected $table = 'rucketcomments';
+        
         protected $fillable = [
         'comment',
-        'rubber_id',
+        'rucket_id',
         ];
         
         public function orderById()
         {
-                return $this->orderBy('rubber_id', 'DESC')->get();
+            return $this->orderBy('rucket_id', 'DESC')->get();
         }
 }
-?>

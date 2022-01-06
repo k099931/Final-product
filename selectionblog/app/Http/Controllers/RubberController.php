@@ -18,6 +18,12 @@ class RubberController extends Controller
     {
         return view('rubbers/show')->with(['rubber' => $rubber, 'rubbercomments' => $rubbercomment->orderById()]);
     }
+    
+    public function delete(Rubber $rubber)
+    {
+        $rubber->delete();
+        return redirect('/rubbers/{rubber}');
+    }
 
     public function store(Rubbercomment $rubbercomment, RubberCommentRequest $request)
     {
