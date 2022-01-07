@@ -22,6 +22,33 @@
         </style>
     </head>
     <body>
+        
+        @section('content')
+        <form action='/' method="POST">
+           @csrf
+           <div class='form-group'>
+               <lavel>ラバー名</lavel>
+               <input type="text" class="form-control col-md-5" placeholder="検索したいラバー名を入力してください" name="rubbername">
+           </div>
+           <div class='form-group'>
+               <lavel>メーカー名</lavel>
+               <input type="text" class="form-control col-md-5" placeholder="検索したいメーカー名を入力してください" name="makername">
+           </div>
+           <div class='form-group'>
+               <lavel>価格</lavel>
+               <input type="text" class="form-control col-md-5" placeholder="価格を入力してください" name="price" value="{{ old("name") }}">
+           </div>
+           
+           <div class='form-group'>
+               <lavel>価格の条件</lavel>
+               <select class="form-control col-md-5" name="price_condition">
+                   <option selected value="0">選択 ．．．</option>
+                   <option value="1">以上</option>
+                   <option value="2">以下</option>
+               </select>
+           </div>
+           
+           <button type="submit" class="btn btn-primary col-md-5">検索</button>
         <div class='rubbers'>
             @foreach ($rubbers as $rubber)
               <hr size="5" color="red">
@@ -36,6 +63,7 @@
                  </div>
                  @endforeach
             @endforeach
-        </div>    
+        </div>
+        @endsection
     </body>
 </html>

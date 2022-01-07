@@ -12,7 +12,8 @@
 */
 
 Route::get('/', 'RubberController@index');
-Route::get('/', 'RucketController@index');
+//Route::get('/', 'RucketController@index');
+Route::get('/search', 'RubberController@search');
 Route::get('/rubbers/{rubber}', 'RubberController@show');
 Route::get('/ruckets/{rucket}', 'RucketController@show');
 Route::post('/rubbers', 'RubberController@store');
