@@ -13,6 +13,7 @@
 
 Route::get('/', 'RubberController@index');
 //Route::get('/', 'RucketController@index');
+Route::post('/', 'RubberController@search');
 Route::get('/search', 'RubberController@search');
 Route::get('/rubbers/{rubber}', 'RubberController@show');
 Route::get('/ruckets/{rucket}', 'RucketController@show');

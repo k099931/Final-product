@@ -19,20 +19,18 @@
               padding: 0;
               line-height: 5;
            }
+           .form-group {
+              text-align:right;
+           }
         </style>
     </head>
     <body>
         
-        @section('content')
         <form action='/' method="POST">
            @csrf
            <div class='form-group'>
                <lavel>ラバー名</lavel>
-               <input type="text" class="form-control col-md-5" placeholder="検索したいラバー名を入力してください" name="rubbername">
-           </div>
-           <div class='form-group'>
-               <lavel>メーカー名</lavel>
-               <input type="text" class="form-control col-md-5" placeholder="検索したいメーカー名を入力してください" name="makername">
+               <input type="text" class="form-control col-md-5" placeholder="検索したいラバー名を入力してください" name="name">
            </div>
            <div class='form-group'>
                <lavel>価格</lavel>
@@ -48,7 +46,10 @@
                </select>
            </div>
            
-           <button type="submit" class="btn btn-primary col-md-5">検索</button>
+           <div class='form-group'>
+              <button type="submit">検索</button>
+           </div>
+           
         <div class='rubbers'>
             @foreach ($rubbers as $rubber)
               <hr size="5" color="red">
@@ -64,6 +65,5 @@
                  @endforeach
             @endforeach
         </div>
-        @endsection
     </body>
 </html>

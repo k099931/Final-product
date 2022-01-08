@@ -16,33 +16,45 @@ class RubberController extends Controller
     
     public function search(Request $request)
     {
-        $keyword_rubbername = $request->rubbername;
-        $keyword_makername = $request->makername;
+        $keyword_name = $request->name;
         $keyword_price = $request->price;
         $keyword_price_condition = $request->price_condition;
         
-        if(!empty($keyword_rubbername) && empty($keyword_makername) && empty($keyword_price_condition))
+        if(!empty($keyword_name) && empty($keyword_price) && empty($keyword_price_condition))
         {
             $query = Rubber::query();
-            $rubbers = $query->where('rubbername', 'like', '%' .$keyword_rubbername. '%')->get();
-            $message = " 「". $keyword_rubbername."」を含む名前の検索が完了しました。";
-            return view('/search')->with(['rubbers' => $rubbers, 'message' => $message,]);
+            $rubbers = $query->where('name', 'like', '%' .$keyword_name. '%')->get();
+            $message = " 「". $keyword_name."」を含む名前の検索が完了しました。";
+            return view('rubbers/search')->with(['rubbers' => $rubbers, 'message' => $message,]);
         }
         
-        elseif(empty($keyword_rubbername) && !empty($keyword_price) && $keyword_price_condition == 0)
+        elseif(empty($keyword_name) && !empty($keyword_price) && $keyword_price_condition == 0)
         {
             $message = "価格の条件を選択してください";
-            return view('/search')->with(['message' => $message,]);
+            return view('rubbers/search')->with(['message' => $message,]);
         }
         
-        elseif(empty($keyword_rubbername) && !empty($keyword_price) && $keyword_price_condition == 1)
+        elseif(empty($keyword_name) && !empty($keyword_price) && $keyword_price_condition == 1)
         {
             $query = Rubber::query();
             $rubbers = $query->where('price','>=', $keyword_price)->get();
-            $message = $keyword_price. "歳以上の検索が完了しました";
-            return view('/search')->with(['rubbers' => $rubbers, 'message' => $message,]);
+            $message = $keyword_price. "円以上の検索が完了しました";
+            return view('rubbers/search')->with(['rubbers' => $rubbers, 'message' => $message,]);
         }
         
+        elseif(!empty($keyword_name) && !empty($keyword_price) && $keyword_price_condition == 2)
+        {
+            $query = Rubber::query();
+            $rubbers = $query->where('name', 'like', '%' .$keyword_name. '%')-_where('price','<=', $keyword_price)->get();
+            $message = "「".$keyword_rubbername . "」を含む名前と". $keyword_price."円以下の検索が完了しました";
+            return view('rubbers/search')->with(['rubbers' => $rubbers, 'message' => $message,]);
+        }
+        
+        else
+        {
+            $message = "検索結果はありません。";
+            return view('rubbers/search')->with('message',$message);
+        }
         
     }
     
