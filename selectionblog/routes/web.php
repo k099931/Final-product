@@ -11,10 +11,12 @@
 |
 */
 
-Route::get('/', 'RubberController@index');
-//Route::get('/', 'RucketController@index');
+//Route::get('/', 'RubberController@index');
+Route::get('/', 'RucketController@index');
 Route::post('/', 'RubberController@search');
+Route::post('/', 'RucketController@search');
 Route::get('/search', 'RubberController@search');
+Route::get('/search', 'RucketController@search');
 Route::get('/rubbers/{rubber}', 'RubberController@show');
 Route::get('/ruckets/{rucket}', 'RucketController@show');
 Route::post('/rubbers', 'RubberController@store');
