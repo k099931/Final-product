@@ -11,8 +11,9 @@
 |
 */
 
-//Route::get('/', 'RubberController@index');
-Route::get('/', 'RucketController@index');
+Route::get('/', 'MenuController@index');
+Route::get('/rubbers', 'RubberController@index');
+Route::get('/ruckets', 'RucketController@index');
 Route::post('/', 'RubberController@search');
 Route::post('/', 'RucketController@search');
 Route::get('/search', 'RubberController@search');

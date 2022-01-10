@@ -1,27 +1,11 @@
-<!DOCTYPE HTML>
-<html lang="{{ str_replace("_", "-", app()->getLocale()) }}">
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getlocale()) }}">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>ラケット詳細</title>
+        <title>TOP</title>
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <link rel="stylesheet" href="/css/app.css">
         <style>
-           .flex {
-              display: flex;
-           }
-           .flex .image {
-              margin: 0;
-              padding: 0;
-              overflow: hidden;
-              position: relative;
-           }
-           .flex .right{
-              margin: 0 0 0 20px;
-              padding: 0;
-           }
-           
-                       .header {
+            .header {
                display: flex;
                justify-content: center;
                align-items: center;
@@ -112,7 +96,7 @@
     </head>
     <body>
         <header class="header">
-            <div class="logo">ラケット詳細</div>
+            <div class="logo">TOP</div>
             <div class="nav">
                 <input id="drawer_input" class="drawer_hidden" type="checkbox">
                 <label for="drawer_input" class="drawer_open"><span></span></label>
@@ -126,52 +110,24 @@
                 </nav>
             </div>
         </header>
-        <hr size="5" color="blue">
-        <h1>{{ $rucket->maker }}&emsp;/&emsp;{{ $rucket->name }}</h1>
-        <hr size="5" color="blue">
-        <div class='flex'>
-            <figure class='image'><img src="{{ $rucket->image }}" width="516" height="240"></figure>
-            <span style="border-bottom: solid 2px blue;">
-                <h2 class='right'>
-                反発：{{ $rucket->repulsion }}<br><br>
-                打球感：{{ $rucket->feeling }}<br><br>
-                重量：{{ $rucket->weight }}<br><br>
-                価格：{{ $rucket->price}}
-               </h2>
-            </span>
-        </div>
-        <div class='evaluation'>
-            <span style="border-bottom: solid 2px blue;">
+        <h1 style="text-align:center" ><font size="7">卓球用具選定アプリ</font></h1>
+        <h2 style="text-align:center">～　あなたの求める用具を探そう！　～</h2>
+            <div class="explanation">
                 <hr size="5" color="blue">
-                <h1>皆の評価</h1>
+                    <h1>・アプリ説明</h1>
                 <hr size="5" color="blue">
-                <div class="comments">
-                    @foreach ($rucketcomments as $rucketcomment)
-                       <div class="comment">
-                           @if( $rucketcomment->rucket_id === $rucket->id )
-                              <h2 class="comment">{{ $rucketcomment->comment }}</h2>
-                              <p class="created">{{ $rucketcomment->created_at }}</p><br>
-                           @endif
-                       </div>
-                    @endforeach
-                </div>
-            </span>
-            <form action="/ruckets" method="POST">
-                @csrf
-                <div class="create">
-                    <hr size="5" color="blue">
-                    <h2>コメント</h2>
-                    <hr size="5" color="blue">
-                    <textarea name="rucketcomment[comment]" placeholder="素晴らしいラケットです。">{{ old('rucketcomment.comment') }}</textarea>
-                    <p class="comment_error" style="color:red">{{ $errors->first('rucketcomment.comment') }}</p>
-                    <input type="hidden" name="rucketcomment[rucket_id]" value="{{ $rucket->id }}">
-                </div>
-                <input type="submit" value="保存"/>
-            </form>
-        </div>
-        
-        <div class="footer">
-            <a href="/">戻る</a>
-        </div>
+                <h2>
+                    本アプリを作成した経緯としては、卓球の用具について知識の無い初心者の方や、若い世代の方でも、自分に合った用具を選ぶことを可能にするアプリをあればいいな、との考えから作成を
+                    始めました。機能としては、「ラバー検索機能」や「ラケット検索機能」、「コメント機能」などがあります。
+                </h2><br>
+            </div>
+            <div class="how-to-use">
+                <hr size="5" color="blue">
+                    <h1>・アプリ使用方法</h1>
+                <hr size="5" color="blue">
+                <h2>
+                    画面右上のメニューバーから、使用したい機能をクリックし、その画面へ遷移してください。
+                    そのあとは、自分に合った用具を探すだけです。
+                </h2>
+            </div>
     </body>
-</html>
