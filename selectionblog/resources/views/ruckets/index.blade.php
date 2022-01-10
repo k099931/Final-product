@@ -155,9 +155,9 @@
         
         <div class='ruckets'>
             @foreach ($ruckets as $rucket)
-              <hr size="5" color="blue">
+              <hr size="5" color="#476FBF">
               <h1>&emsp;{{ $rucket->maker }}</h1>
-              <hr size="5" color="blue">
+              <hr size="5" color="476FBF">
                  @foreach ($ruckets as $rucket)
                  <div class='flex'>
                      <figure class="image"><img src="{{ $rucket->image }}" width="258" height="120"></figure>

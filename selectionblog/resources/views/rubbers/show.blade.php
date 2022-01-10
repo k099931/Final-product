@@ -141,9 +141,9 @@
                 </nav>
             </div>
         </header>
-        <hr size="5" color="red">
+        <hr size="5" color="#B3424A">
         <h1>{{ $rubber->maker }}&emsp;/&emsp;{{ $rubber->name }}</h1>
-        <hr size="5" color="red">
+        <hr size="5" color="#B3424A">
         <div class='flex'>
             <figure class='image'><img src="{{ $rubber->image }}" width="280" height="300"></figure>
             <span style="border-bottom: solid 2px blue;">
@@ -157,9 +157,9 @@
         </div>
         <div class='evaluation'>
             <span style="border-bottom: solid 2px blue;">
-                <hr size="5" color="red">
+                <hr size="5" color="#B3424A">
                 <h1>皆の評価</h1>
-                <hr size="5" color="red">
+                <hr size="5" color="#B3424A">
                 <div class="comments">
                     @foreach ($rubbercomments as $rubbercomment)
                        <div class="comment">
@@ -174,9 +174,9 @@
             <form action="/rubbers" method="POST">
                 @csrf
                 <div class="create">
-                    <hr size="5" color="red">
+                    <hr size="5" color="#B3424A">
                     <h2>コメント</h2>
-                    <hr size="5" color="red">
+                    <hr size="5" color="#B3424A">
                     <textarea name="rubbercomment[comment]" placeholder="素晴らしいラバーです。">{{ old('rubbercomment.comment') }}</textarea>
                     <p class="comment_error" style="color:red">{{ $errors->first('rubbercomment.comment') }}</p>
                     <input type="hidden" name="rubbercomment[rubber_id]" value="{{ $rubber->id }}">

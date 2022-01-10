@@ -113,18 +113,18 @@
         <h1 style="text-align:center" ><font size="7">卓球用具選定アプリ</font></h1>
         <h2 style="text-align:center">～　あなたの求める用具を探そう！　～</h2>
             <div class="explanation">
-                <hr size="5" color="blue">
+                <hr size="5" color="#4B0082">
                     <h1>・アプリ説明</h1>
-                <hr size="5" color="blue">
+                <hr size="5" color="#4B0082">
                 <h2>
                     本アプリを作成した経緯としては、卓球の用具について知識の無い初心者の方や、若い世代の方でも、自分に合った用具を選ぶことを可能にするアプリをあればいいな、との考えから作成を
                     始めました。機能としては、「ラバー検索機能」や「ラケット検索機能」、「コメント機能」などがあります。
                 </h2><br>
             </div>
             <div class="how-to-use">
-                <hr size="5" color="blue">
+                <hr size="5" color="#4B0082">
                     <h1>・アプリ使用方法</h1>
-                <hr size="5" color="blue">
+                <hr size="5" color="#4B0082">
                 <h2>
                     画面右上のメニューバーから、使用したい機能をクリックし、その画面へ遷移してください。
                     そのあとは、自分に合った用具を探すだけです。

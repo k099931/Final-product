@@ -126,9 +126,9 @@
                 </nav>
             </div>
         </header>
-        <hr size="5" color="blue">
+        <hr size="5" color="#476FBF">
         <h1>{{ $rucket->maker }}&emsp;/&emsp;{{ $rucket->name }}</h1>
-        <hr size="5" color="blue">
+        <hr size="5" color="#476FBF">
         <div class='flex'>
             <figure class='image'><img src="{{ $rucket->image }}" width="516" height="240"></figure>
             <span style="border-bottom: solid 2px blue;">
@@ -142,9 +142,9 @@
         </div>
         <div class='evaluation'>
             <span style="border-bottom: solid 2px blue;">
-                <hr size="5" color="blue">
+                <hr size="5" color="#476FBF">
                 <h1>皆の評価</h1>
-                <hr size="5" color="blue">
+                <hr size="5" color="#476FBF">
                 <div class="comments">
                     @foreach ($rucketcomments as $rucketcomment)
                        <div class="comment">
@@ -159,9 +159,9 @@
             <form action="/ruckets" method="POST">
                 @csrf
                 <div class="create">
-                    <hr size="5" color="blue">
+                    <hr size="5" color="#476FBF">
                     <h2>コメント</h2>
-                    <hr size="5" color="blue">
+                    <hr size="5" color="#476FBF">
                     <textarea name="rucketcomment[comment]" placeholder="素晴らしいラケットです。">{{ old('rucketcomment.comment') }}</textarea>
                     <p class="comment_error" style="color:red">{{ $errors->first('rucketcomment.comment') }}</p>
                     <input type="hidden" name="rucketcomment[rucket_id]" value="{{ $rucket->id }}">

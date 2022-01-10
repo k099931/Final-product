@@ -170,9 +170,9 @@
            
         <div class='rubbers'>
             @foreach ($rubbers as $rubber)
-              <hr size="5" color="red">
+              <hr size="5" color="#B3424A">
               <h1>&emsp;{{ $rubber->maker }}</h1>
-              <hr size="5" color="red">
+              <hr size="5" color="#B3424A">
                  @foreach ($rubbers as $rubber)
                  <div class='flex'>
                      <figure class="image"><img src="{{ $rubber->image }}" width="105" height="112"></figure>
