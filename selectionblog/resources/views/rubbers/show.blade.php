@@ -164,7 +164,7 @@
                     @foreach ($rubbercomments as $rubbercomment)
                        <div class="comment">
                            @if( $rubbercomment->rubber_id === $rubber->id )
-                              <p class="user">{{ $rubbercomment->user->name }}</p>
+                              <p class="user">{{ $rubbercomment->user_id->name }}</p>
                               <h2 class="comment">{{ $rubbercomment->comment }}</h2>
                               <p class="created">{{ $rubbercomment->created_at }}</p><br>
                            @endif

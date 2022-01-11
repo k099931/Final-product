@@ -11,11 +11,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
 
-//Route::get('/', 'MenuController@index');
+Route::get('/', 'MenuController@index');
 Route::get('/rubbers', 'RubberController@index');
 Route::get('/ruckets', 'RucketController@index');
 Route::post('/', 'RubberController@search');
@@ -29,5 +27,8 @@ Route::post('/ruckets', 'RucketController@store');
 Route::delete('/rubbers/{rubber}', 'RubberController@delete');
 Route::delete('/ruckets/{rucket}', 'RucketController@delete');
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 
 ?>
