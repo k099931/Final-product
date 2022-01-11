@@ -164,6 +164,7 @@
                     @foreach ($rubbercomments as $rubbercomment)
                        <div class="comment">
                            @if( $rubbercomment->rubber_id === $rubber->id )
+                              <p class="user">{{ $rubbercomment->user->name }}</p>
                               <h2 class="comment">{{ $rubbercomment->comment }}</h2>
                               <p class="created">{{ $rubbercomment->created_at }}</p><br>
                            @endif
@@ -180,6 +181,14 @@
                     <textarea name="rubbercomment[comment]" placeholder="素晴らしいラバーです。">{{ old('rubbercomment.comment') }}</textarea>
                     <p class="comment_error" style="color:red">{{ $errors->first('rubbercomment.comment') }}</p>
                     <input type="hidden" name="rubbercomment[rubber_id]" value="{{ $rubber->id }}">
+                </div>
+                <div class="user">
+                    <h2>User</h2>
+                    <select name="rubbercomment[user_id]">
+                        @foreach($users as $user)
+                            <option value="{{ $user->id }}">{{ $user->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <input type="submit" value="保存"/>
             </form>

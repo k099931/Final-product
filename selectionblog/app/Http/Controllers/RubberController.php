@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Rubber;
 use App\Rubbercomment;
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\RubberCommentRequest;
 
@@ -58,22 +59,25 @@ class RubberController extends Controller
         
     }
     
-    public function show(Rubber $rubber, Rubbercomment $rubbercomment)
+    public function show(Rubber $rubber, Rubbercomment $rubbercomment, User $user)
     {
-        return view('rubbers/show')->with(['rubber' => $rubber, 'rubbercomments' => $rubbercomment->orderById()]);
+        return view('rubbers/show')->with(['rubber' => $rubber, 'rubbercomments' => $rubbercomment->orderById() , 'users' => $user->get()]);
     }
     
-    public function delete(Rubber $rubber)
-    {
-        $rubber->delete();
-        return redirect('/rubbers/{rubber}');
-    }
+    //public function delete(Rubber $rubber)
+    //{
+    //    $rubber->delete();
+    //    return redirect('/rubbers/{rubber}');
+    //}
+
+    //public function create(User $user)
+    //{
+    //    return view('rubbers/show')->with(['users' => $user->get()]);;
+    //}
+
 
     public function store(Rubbercomment $rubbercomment, RubberCommentRequest $request)
     {
-        //$url_path = $route->getPath();
-        //$url_parts = explode('/', $url_path);
-        //$url_tail = end($url_parts);
         $input = $request['rubbercomment'];
         $rubbercomment->fill($input)->save();
         return redirect('/rubbers/' . $rubbercomment->rubber_id);

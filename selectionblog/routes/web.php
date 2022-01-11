@@ -22,6 +22,7 @@ Route::get('/rubbers/{rubber}', 'RubberController@show');
 Route::get('/ruckets/{rucket}', 'RucketController@show');
 Route::post('/rubbers', 'RubberController@store');
 Route::post('/ruckets', 'RucketController@store');
+//Route::get('/rubbers', 'RubberController@create');
 Route::delete('/rubbers/{rubber}', 'RubberController@delete');
 Route::delete('/ruckets/{rucket}', 'RucketController@delete');
 
