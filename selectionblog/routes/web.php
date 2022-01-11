@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,8 +11,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
-Route::get('/', 'MenuController@index');
+Route::get('/', 'HomeController@index')->name('home');
+
+//Route::get('/', 'MenuController@index');
 Route::get('/rubbers', 'RubberController@index');
 Route::get('/ruckets', 'RucketController@index');
 Route::post('/', 'RubberController@search');
@@ -22,8 +26,8 @@ Route::get('/rubbers/{rubber}', 'RubberController@show');
 Route::get('/ruckets/{rucket}', 'RucketController@show');
 Route::post('/rubbers', 'RubberController@store');
 Route::post('/ruckets', 'RucketController@store');
-//Route::get('/rubbers', 'RubberController@create');
 Route::delete('/rubbers/{rubber}', 'RubberController@delete');
 Route::delete('/ruckets/{rucket}', 'RucketController@delete');
+
 
 ?>
