@@ -19,5 +19,10 @@ class Rubbercomment extends Model
         {
                 return $this->orderBy('rubber_id', 'DESC')->get();
         }
+        
+        public function user()
+        {
+                return $this->belongsTo('App\User');
+        }
 }
 ?>

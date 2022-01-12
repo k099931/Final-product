@@ -36,4 +36,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    public function rubbercomments()
+    {
+        return $this->hasMany('App\Rubbercomment');
+    }
+    
+    public function rucketcomments()
+    {
+        return $this->hasMany('App\Rucketcomment');
+    }
 }

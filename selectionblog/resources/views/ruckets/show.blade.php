@@ -149,6 +149,7 @@
                     @foreach ($rucketcomments as $rucketcomment)
                        <div class="comment">
                            @if( $rucketcomment->rucket_id === $rucket->id )
+                              <p class="author">{{ $rucketcomment->user->name }}</p>
                               <h2 class="comment">{{ $rucketcomment->comment }}</h2>
                               <p class="created">{{ $rucketcomment->created_at }}</p><br>
                            @endif
@@ -165,6 +166,7 @@
                     <textarea name="rucketcomment[comment]" placeholder="素晴らしいラケットです。">{{ old('rucketcomment.comment') }}</textarea>
                     <p class="comment_error" style="color:red">{{ $errors->first('rucketcomment.comment') }}</p>
                     <input type="hidden" name="rucketcomment[rucket_id]" value="{{ $rucket->id }}">
+                    <input type="hidden" name="rucketcomment[user_id]" value="{{ Auth::user()->id }}">
                 </div>
                 <input type="submit" value="保存"/>
             </form>

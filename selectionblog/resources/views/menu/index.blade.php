@@ -92,10 +92,15 @@
             #drawer_input:checked ~ .nav_content {
                bottom: 0;
             }
+            
+            .user {
+               position: left;
+            }
         </style>
     </head>
     <body>
         <header class="header">
+            <div class="user">{{ Auth::user()->name }}</div>
             <div class="logo">TOP</div>
             <div class="nav">
                 <input id="drawer_input" class="drawer_hidden" type="checkbox">
