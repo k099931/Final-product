@@ -12,7 +12,8 @@ class Rubbercomment extends Model
         protected $fillable = [
         'comment',
         'rubber_id',
-        'user_id'
+        'user_id',
+        'stars'
         ];
         
         public function orderById()

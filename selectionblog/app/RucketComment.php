@@ -14,7 +14,8 @@ class RucketComment extends Model
         protected $fillable = [
         'comment',
         'rucket_id',
-        'user_id'
+        'user_id',
+        'stars'
         ];
         
         public function orderById()
@@ -24,6 +25,6 @@ class RucketComment extends Model
         
         public function user()
         {
-            return $this->belongsTo('App\Rucketcomment');
+            return $this->belongsTo('App\User');
         }
 }

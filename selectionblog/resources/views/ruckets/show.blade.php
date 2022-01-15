@@ -108,6 +108,32 @@
             #drawer_input:checked ~ .nav_content {
                bottom: 0;
             }
+            
+                        
+            .rate-form {
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: flex-end;
+            }
+            .rate-form input[type=radio] {
+                display: none;
+            }
+            .rate-form label {
+                position: relative;
+                padding: 0 5px;
+                color: #ccc;
+                cursor: pointer;
+                font-size: 35px;
+            }
+            .rate-form label:hover {
+                color: #ffcc00;
+            }
+            .rate-form label:hover ~ label {
+                color: #ffcc00;
+            }
+            .rate-form input[type=radio]:checked ~ label {
+                color: #ffcc00;
+            }
         </style>
     </head>
     <body>
@@ -149,6 +175,9 @@
                     @foreach ($rucketcomments as $rucketcomment)
                        <div class="comment">
                            @if( $rucketcomment->rucket_id === $rucket->id )
+                              @for ($i = 0; $i <  $rucketcomment->stars ; $i++ )
+                                    <p style="display:inline;"><font size="6" color="#ffcc00">★</font></p>
+                              @endfor
                               <p class="author">{{ $rucketcomment->user->name }}</p>
                               <h2 class="comment">{{ $rucketcomment->comment }}</h2>
                               <p class="created">{{ $rucketcomment->created_at }}</p><br>
@@ -163,6 +192,18 @@
                     <hr size="5" color="#476FBF">
                     <h2>コメント</h2>
                     <hr size="5" color="#476FBF">
+                        <div class="rate-form">
+                           <input id="star5" type="radio" name="rucketcomment[stars]" value="5">
+                           <label for="star5">★</label>
+                           <input id="star4" type="radio" name="rucketcomment[stars]" value="4">
+                           <label for="star4">★</label>
+                           <input id="star3" type="radio" name="rucketcomment[stars]" value="3">
+                           <label for="star3">★</label>
+                           <input id="star2" type="radio" name="rucketcomment[stars]" value="2">
+                           <label for="star2">★</label>                       
+                           <input id="star1" type="radio" name="rucketcomment[stars]" value="1">
+                           <label for="star1">★</label>
+                        </div>
                     <textarea name="rucketcomment[comment]" placeholder="素晴らしいラケットです。">{{ old('rucketcomment.comment') }}</textarea>
                     <p class="comment_error" style="color:red">{{ $errors->first('rucketcomment.comment') }}</p>
                     <input type="hidden" name="rucketcomment[rucket_id]" value="{{ $rucket->id }}">

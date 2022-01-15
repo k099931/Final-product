@@ -123,6 +123,31 @@
             #drawer_input:checked ~ .nav_content {
                bottom: 0;
             }
+            
+            .rate-form {
+                display: flex;
+                flex-direction: row-reverse;
+                justify-content: flex-end;
+            }
+            .rate-form input[type=radio] {
+                display: none;
+            }
+            .rate-form label {
+                position: relative;
+                padding: 0 5px;
+                color: #ccc;
+                cursor: pointer;
+                font-size: 35px;
+            }
+            .rate-form label:hover {
+                color: #ffcc00;
+            }
+            .rate-form label:hover ~ label {
+                color: #ffcc00;
+            }
+            .rate-form input[type=radio]:checked ~ label {
+                color: #ffcc00;
+            }
         </style>
     </head>
     <body>
@@ -164,6 +189,9 @@
                     @foreach ($rubbercomments as $rubbercomment)
                        <div class="comment">
                            @if( $rubbercomment->rubber_id === $rubber->id )
+                              @for ($i = 0; $i <  $rubbercomment->stars ; $i++ )
+                                    <p style="display:inline;"><font size="6" color="#ffcc00">★</font></p>
+                              @endfor
                               <p class="author">{{ $rubbercomment->user->name }}</p>
                               <h2 class="comment">{{ $rubbercomment->comment }}</h2>
                               <p class="created">{{ $rubbercomment->created_at }}</p><br>
@@ -178,6 +206,18 @@
                     <hr size="5" color="#B3424A">
                     <h2>コメント</h2>
                     <hr size="5" color="#B3424A">
+                        <div class="rate-form">
+                           <input id="star5" type="radio" name="rubbercomment[stars]" value="5">
+                           <label for="star5">★</label>
+                           <input id="star4" type="radio" name="rubbercomment[stars]" value="4">
+                           <label for="star4">★</label>
+                           <input id="star3" type="radio" name="rubbercomment[stars]" value="3">
+                           <label for="star3">★</label>
+                           <input id="star2" type="radio" name="rubbercomment[stars]" value="2">
+                           <label for="star2">★</label>                       
+                           <input id="star1" type="radio" name="rubbercomment[stars]" value="1">
+                           <label for="star1">★</label>
+                        </div>
                     <textarea name="rubbercomment[comment]" placeholder="素晴らしいラバーです。">{{ old('rubbercomment.comment') }}</textarea>
                     <p class="comment_error" style="color:red">{{ $errors->first('rubbercomment.comment') }}</p>
                     <input type="hidden" name="rubbercomment[rubber_id]" value="{{ $rubber->id }}">
@@ -190,5 +230,11 @@
         <div class="footer">
             <a href="/">戻る</a>
         </div>
+        <script>
+            Vue.component('v-star', {
+               props: ['value'],
+               template: '<span><span v-for="number in parseInt(value)">&#x2B50;</span></span>'
+            });
+        </script>
     </body>
 </html>
