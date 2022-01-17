@@ -26,7 +26,7 @@ Route::post('/rubbers', 'RubberController@store');
 Route::post('/ruckets', 'RucketController@store');
 Route::delete('/rubbers/{rubber}', 'RubberController@delete');
 Route::delete('/ruckets/{rucket}', 'RucketController@delete');
-
+    
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
