@@ -128,7 +128,7 @@
                 </nav>
             </div>
         </header>
-        <form action='/' method="POST">
+        <form action='/ruckets/search' method="POST">
            @csrf
            <div class='form-group'>
                <lavel>ラケット名</lavel>

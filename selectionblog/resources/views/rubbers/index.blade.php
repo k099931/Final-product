@@ -144,7 +144,7 @@
                 </nav>
             </div>
         </header>
-        <form action='/' method="POST">
+        <form action='/rubbers/search' method="POST">
            @csrf
            <div class='form-group'>
                <lavel>ラバー名</lavel>
