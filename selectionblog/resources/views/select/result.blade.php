@@ -2,28 +2,10 @@
 <html lang="{{ str_replace('_', '-', app()->getlocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>選定画面</title>
+        <title>選定結果</title>
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <style>
            .flex {
-              display: flex;
-           }
-           .flex .image {
-              margin: 0;
-              padding: 0;
-              overflow: hidden;
-              position: relative;
-           }
-           .flex .right{
-              margin: 0 0 0 20px;
-              padding: 0;
-              line-height: 5;
-           }
-           .form-group {
-              text-align:left;
-           }
-           
-                      .flex {
               display: flex;
            }
            .flex .image {
@@ -128,9 +110,8 @@
         </style>
     </head>
     <body>
-        
         <header class="header">
-            <div class="logo">選定画面</div>
+            <div class="logo">選定結果</div>
             <div class="nav">
                 <input id="drawer_input" class="drawer_hidden" type="checkbox">
                 <label for="drawer_input" class="drawer_open"><span></span></label>
@@ -145,37 +126,38 @@
                 </nav>
             </div>
         </header>
-        <form action='/select/result' method="POST">
-           @csrf
-            <div class='selection'>
-            <div class='question-1'>
-                <hr size="5" color="#B3424A">
-                <h1>&emsp;Q1.&emsp;ラケットは何を使いますか？</h1>
-                <hr size="5" color="#B3424A">
-                <div class='form-group'>
-                    <input type="text" class="form-control col-md-5" placeholder="ラケット名を入力してください" name="rucket">
-                </div>
-            </div>
-            <div class='question-2'>
-                <hr size="5" color="#B3424A">
-                <h1>&emsp;Q2.&emsp;フォアラバーは何を使いますか？</h1>
-                <hr size="5" color="#B3424A">
-                <div class='form-group'>
-                    <input type="text" class="form-control col-md-5" placeholder="フォアラバー名を入力してください" name="f_rubber">
-                </div>
-            </div>
-            <div class='question-3'>
-                <hr size="5" color="#B3424A">
-                <h1>&emsp;Q3.&emsp;バックラバーは何を使いますか？</h1>
-                <hr size="5" color="#B3424A">
-                <div class='form-group'>
-                    <input type="text" class="form-control col-md-5" placeholder="バックラバー名を入力してください" name="b_rubber">
-                </div>
-            </div>
-            </div>
-            <div class='form-group'>
-                <button type="submit">保存</button>
-            </div>
-        </form>
+        <div style="margin-top:50px;">
+            <h1>選定結果</h1>
+            @if(isset($ruckets))
+                @foreach($ruckets as $rucket)
+                    <h2 class='rucket'>使用ラケット：{{ $rucket->name }}</h2>
+                @endforeach
+            @endif
+            @if(isset($frubbers))
+                @foreach($frubbers as $frubber)
+                    <h2 class='f_rubber'>フォアラバー：{{ $frubber->name }}</h2>
+                @endforeach
+            @endif
+            @if(isset($brubbers))
+                @foreach($brubbers as $brubber)
+                    <h2 class='b_rubber'>バックラバー：{{ $brubber->name }}</h2>
+                @endforeach
+            @endif
+            @php
+                if($rucket->repulsion == "Midslow")
+                    $repulsion = 10;
+                $performance = 0;
+                $performance = $performance + $repulsion + $frubber->speed + $brubber->speed;
+            @endphp
+            <h2 class='performance'>総合性能数値：{{ $performance }}</h2>
+            @php
+                if($performance == 40.25)
+                    $recommend = "E";
+            @endphp
+            <h2 class='rank'>ランク：{{ $recommend }}</h2>
+            @if(!empty($message))
+            <div class="alert alert-primary" role="alert">{{ $message }}</div>
+            @endif
+        </div>
     </body>
 </html>

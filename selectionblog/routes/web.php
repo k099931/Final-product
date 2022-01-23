@@ -14,8 +14,11 @@
 
 
 Route::get('/', 'MenuController@index');
+Route::get('/select' , 'SelectController@index');
 Route::get('/rubbers', 'RubberController@index');
 Route::get('/ruckets', 'RucketController@index');
+Route::get('/select/result' , 'SelectController@select');
+Route::post('/select/result' , 'SelectController@select');
 Route::post('/rubbers', 'RubberController@store');
 Route::post('/ruckets', 'RucketController@store');
 Route::get('/rubbers/search', 'RubberController@search');
