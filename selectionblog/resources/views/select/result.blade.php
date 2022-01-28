@@ -127,7 +127,9 @@
             </div>
         </header>
         <div style="margin-top:50px;">
+            <hr size="5" color="#B3424A">
             <h1>選定結果</h1>
+            <hr size="5" color="#B3424A">
             @if(isset($ruckets))
                 @foreach($ruckets as $rucket)
                     <h2 class='rucket'>使用ラケット：{{ $rucket->name }}</h2>
@@ -146,15 +148,24 @@
             @php
                 if($rucket->repulsion == "Midslow")
                     $repulsion = 10;
-                $performance = 0;
-                $performance = $performance + $repulsion + $frubber->speed + $brubber->speed;
+                    $performance = 0;
+                    $performance = $performance + $repulsion + $frubber->speed + $brubber->speed;
             @endphp
             <h2 class='performance'>総合性能数値：{{ $performance }}</h2>
             @php
                 if($performance == 40.25)
-                    $recommend = "E";
+                    $rank = "E";
             @endphp
-            <h2 class='rank'>ランク：{{ $recommend }}</h2>
+            <h2 class='rank'>ランク：{{ $rank }}</h2>
+            @php
+                if($rank == "E")
+                    $recommend = "中級者";
+            @endphp
+            <hr size="5" color="#B3424A">
+            <h1 class='recommend'>こういう人向け</h2>
+            <hr size="5" color="#B3424A">
+            <h2>{{ $recommend }}</h2>
+            
             @if(!empty($message))
             <div class="alert alert-primary" role="alert">{{ $message }}</div>
             @endif
