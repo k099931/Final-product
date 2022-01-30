@@ -146,20 +146,65 @@
                 @endforeach
             @endif
             @php
-                if($rucket->repulsion == "Midslow")
-                    $repulsion = 10;
-                    $performance = 0;
-                    $performance = $performance + $repulsion + $frubber->speed + $brubber->speed;
+                if($rucket->repulsion == "Slow")
+                    $repulsion = 5.5;
+                else if($rucket->repulsion == "Midslow")
+                    $repulsion = 6.5;
+                else if($rucket->repulsion == "Mid")
+                    $repulsion = 7.5;
+                else if($rucket->repulsion == "Midfirst")
+                    $repulsion = 8.5;
+                else if($rucket->repulsion == "First")
+                    $repulsion = 9.5;
+                $performance = 0;
+                $performance = $performance + $repulsion + $frubber->speed + $brubber->speed;
             @endphp
             <h2 class='performance'>総合性能数値：{{ $performance }}</h2>
             @php
-                if($performance == 40.25)
+                if($performance < 10)
                     $rank = "E";
+                else if(10 <= $performance && $performance < 18)
+                    $rank = "D";
+                else if(18 <= $performance && $performance < 26)
+                    $rank = "C";
+                else if(26 <= $performance && $performance < 34)
+                    $rank = "B";
+                else if(34 <= $performance)
+                    $rank = "A";
             @endphp
             <h2 class='rank'>ランク：{{ $rank }}</h2>
             @php
-                if($rank == "E")
-                    $recommend = "中級者";
+                if($rucket->feeling == "Soft"):
+                    if($frubber->hardness <= 30 && $brubber->hardness <= 30):
+                        $recommend = "安定感と回転に優れているが、スピードが出しにくい。初心者やブロック主戦型の方にお勧め。";
+                    elseif($frubber->hardness <= 30 && 30 < $brubber->hardness):
+                        $recommend = "フォアでブロックをし、バックで攻撃をする方にお勧め。初心者や子ども、女性にはお勧めできない。";
+                    elseif($frubber->hardness > 30 && $brubber->hardness <= 30):
+                        $recommend = "フォアで良く攻撃し、バックは繋ぐ程度の方にお勧め。初心者や子ども、女性にはお勧めできない。";
+                    elseif($frubber->hardness > 30 && 30 < $brubber->hardness):
+                        $recommend = "回転量が多く、加速に優れている。中距離でドライブを多用する選手、しっかりと回転をかける感覚を持っている選手にお勧め。";
+                    endif;
+                elseif($rucket->feeling == "Middle"):
+                    if($frubber->hardness <= 30 && $brubber->hardness <= 30):
+                        $recommend = "回転は程よくかけられるが、スピードはあまり出ない。初心者から中級者の幅広い方が扱える。";
+                    elseif($brubber->hardness <= 30 && 30 < $brubber->hardness):
+                        $recommend = "フォアよりもバックでしっかり攻撃したい方や中級者の方にお勧め。";
+                    elseif(30 < $frubber->hardness && $brubber->hardness <= 30):
+                        $recommend = "バックよりもフォアでしっかり攻撃したい方や中級者の方にお勧め。";
+                    elseif(30 < $frubber->hardness && 30 < $brubber->hardness):
+                        $recommend = "フォアでもバックでもドライブやスマッシュなどの攻撃をバランスよくこなしたい方にお勧め。";
+                    endif;
+                elseif($rucket->feeling == "Hard"):
+                    if($frubber->hardness <= 30 && $brubber->hardness <= 30):
+                        $recommend = "インパクトに関わらず、常に一定量の回転をかけられる。ドライブをかけて卓球台の近くで戦う方にお勧め。";
+                    elseif($frubber->hardness <= 30 && 30 < $brubber->hardness):
+                        $recommend = "フォアではドライブをかけて、バックでは、球を弾くスマッシュのような打ち方をする方にお勧め。";
+                    elseif(30 < $frubber->hardness && $brubber->hardness <= 30):
+                        $recommend = "フォアではスマッシュのような球を弾く打ち方をし、バックでしっかりドライブをかける方にお勧め。";
+                    elseif(30 < $frubber->hardness && 30 < $brubber->hardness):
+                        $recommend = "スピードが出しやすいが、回転量が少なく、加速も少ない。スマッシュのような球を叩くプレーを多用する方、台の近くで戦う前陣速攻型の方にお勧め。";
+                    endif;
+                endif;
             @endphp
             <hr size="5" color="#B3424A">
             <h1 class='recommend'>こういう人向け</h2>
