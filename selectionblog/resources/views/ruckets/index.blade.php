@@ -155,18 +155,31 @@
         
         
         <div class='ruckets'>
+            @php
+                $id = 0;
+            @endphp
             @foreach ($ruckets as $rucket)
-              <hr size="5" color="#476FBF">
-              <h1>&emsp;{{ $rucket->maker }}</h1>
-              <hr size="5" color="476FBF">
-                 @foreach ($ruckets as $rucket)
-                 <div class='flex'>
-                     <figure class="image"><img src="{{ $rucket->image }}" width="258" height="120"></figure>
-                     <h2 class='right'>
-                         <a href="/ruckets/{{ $rucket->id }}">・{{ $rucket->name }}</a>
-                     </h2>
-                 </div>
-                 @endforeach
+                @if($rucket->id > $id)
+                  <hr size="5" color="#476FBF">
+                  <h1>&emsp;{{ $rucket->maker }}</h1>
+                  <hr size="5" color="476FBF">
+                  @php
+                    $target = $rucket->maker;
+                  @endphp
+                  @foreach ($ruckets as $rucket)
+                     <div class='flex'>
+                     @if($target == $rucket->maker)
+                         <figure class="image"><img src="{{ $rucket->image }}" width="258" height="120"></figure>
+                         <h2 class='right'>
+                             <a href="/ruckets/{{ $rucket->id }}">・{{ $rucket->name }}</a>
+                         </h2>
+                         @php
+                            $id = $rucket->id;
+                         @endphp
+                     @endif
+                     </div>
+                  @endforeach
+                 @endif
             @endforeach
         </div>    
     </body>

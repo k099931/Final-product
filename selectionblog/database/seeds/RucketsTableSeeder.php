@@ -15,26 +15,6 @@ class RucketsTableSeeder extends Seeder
         \DB::table('ruckets')->insert([
             [
                 'maker' => 'Nittaku',
-                'name' => 'バイオリン',
-                'image' => 'https://selectionblog.s3.us-east-2.amazonaws.com/Rucket/Viorin.png',
-                'repulsion' => 'Midslow',
-                'feeling' => 'Soft',
-                'weight' => 88.0,
-                'price' => 19800,
-            ],
-        
-            [
-                'maker' => 'Nittaku',
-                'name' => 'アコースティック',
-                'image' => 'https://selectionblog.s3.us-east-2.amazonaws.com/Rucket/Acoustic.png',
-                'repulsion' => 'Mid',
-                'feeling' => 'Middle',
-                'weight' => 88.0,
-                'price' => 19800,
-            ],
-            
-            [
-                'maker' => 'Nittaku',
                 'name' => 'ファクティブ7',
                 'image' => 'https://selectionblog.s3.us-east-2.amazonaws.com/Rucket/FACTIVE7.png',
                 'repulsion' => 'Midfirst',
@@ -251,6 +231,86 @@ class RucketsTableSeeder extends Seeder
                 'feeling' => 'Hard',
                 'weight' => 90.0,
                 'price' => 22000,
+            ],
+            
+            [
+                'maker' => 'BUTTERFLY',
+                'name' => 'TIMO BOLL ALC',
+                'image' => 'https://selectionblog.s3.us-east-2.amazonaws.com/Rucket/TIMO+BOLL+ALC.png',
+                'repulsion' => 'Midfirst',
+                'feeling' => 'Middle',
+                'weight' => 86.0,
+                'price' => 19800,
+            ],
+            
+            [
+                'maker' => 'BUTTERFLY',
+                'name' => '水谷隼 ZLC',
+                'image' => 'https://selectionblog.s3.us-east-2.amazonaws.com/Rucket/Mizutani+Jun+ZLC.png',
+                'repulsion' => 'First',
+                'feeling' => 'Midfirst',
+                'weight' => 87.0,
+                'price' => 27500,
+            ],
+            
+            [
+                'maker' => 'BUTTERFLY',
+                'name' => '張継科 ZLC',
+                'image' => 'https://selectionblog.s3.us-east-2.amazonaws.com/Rucket/%E5%BC%B5%E7%B6%99%E7%A7%91+ZLC.png',
+                'repulsion' => 'Midfirst',
+                'feeling' => 'Middle',
+                'weight' => 88.0,
+                'price' => 27500,
+            ],
+            
+            [
+                'maker' => 'BUTTERFLY',
+                'name' => '林高遠 ALC',
+                'image' => 'https://selectionblog.s3.us-east-2.amazonaws.com/Rucket/%E6%9E%97%E9%AB%98%E9%81%A0+ALC.png',
+                'repulsion' => 'Midfirst',
+                'feeling' => 'Middle',
+                'weight' => 88.0,
+                'price' => 19800,
+            ],
+            
+            [
+                'maker' => 'BUTTERFLY',
+                'name' => 'インナーフォース レイヤー ZLC',
+                'image' => 'https://selectionblog.s3.us-east-2.amazonaws.com/Rucket/INNERFORCE+LAYER+ZLC.png',
+                'repulsion' => 'Mid',
+                'feeling' => 'Middle',
+                'weight' => 89.0,
+                'price' => 23650,
+            ],
+            
+            [
+                'maker' => 'BUTTERFLY',
+                'name' => 'インナーフォース レイヤー ALC',
+                'image' => 'https://selectionblog.s3.us-east-2.amazonaws.com/Rucket/INNERFORCE+LAYER+ALC.png',
+                'repulsion' => 'Mid',
+                'feeling' => 'Middle',
+                'weight' => 88.0,
+                'price' => 16500,
+            ],
+            
+            [
+                'maker' => 'BUTTERFLY',
+                'name' => 'SK7クラシック',
+                'image' => 'https://selectionblog.s3.us-east-2.amazonaws.com/Rucket/SK7%E3%82%AF%E3%83%A9%E3%82%B7%E3%83%83%E3%82%AF.png',
+                'repulsion' => 'Midfirst',
+                'feeling' => 'Middle',
+                'weight' => 90.0,
+                'price' => 7480,
+            ],
+            
+            [
+                'maker' => 'BUTTERFLY',
+                'name' => 'コルベル',
+                'image' => 'https://selectionblog.s3.us-east-2.amazonaws.com/Rucket/KORBEL.png',
+                'repulsion' => 'Mid',
+                'feeling' => 'Middle',
+                'weight' => 92.0,
+                'price' => 6050,
             ],
             
         ]);

@@ -16,28 +16,6 @@ class RubbersTableSeeder extends Seeder
         \DB::table('rubbers')->insert([
             [
                 'maker' => 'Nittaku',
-                'name' => 'ファスターク G-1',
-                'image' =>'https://selectionblog.s3.us-east-2.amazonaws.com/Rubber/Fastarc+G-1.png',
-                'speed' => 15.00,
-                'spin' => 12.50,
-                'hardness' => 37.5,
-                'price' => 6600,
-                'user_id' => 1,
-            ],
-        
-            [
-                'maker' => 'Nittaku',
-                'name' => 'ファスターク C-1',
-                'image' =>'https://selectionblog.s3.us-east-2.amazonaws.com/Rubber/Fastarc+C-1.png',
-                'speed' => 15.25,
-                'spin' => 12.25,
-                'hardness' => 35.0,
-                'price' => 6380,
-                'user_id' => 1,
-            ],
-            
-            [
-                'maker' => 'Nittaku',
                 'name' => 'ファクティブ',
                 'image' =>'https://selectionblog.s3.us-east-2.amazonaws.com/Rubber/FACTIVE.png',
                 'speed' => 14.75,

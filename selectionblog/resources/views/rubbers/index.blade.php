@@ -170,18 +170,31 @@
            </div>
            
         <div class='rubbers'>
+            @php
+                $id = 0;
+            @endphp
             @foreach ($rubbers as $rubber)
-              <hr size="5" color="#B3424A">
-              <h1>&emsp;{{ $rubber->maker }}</h1>
-              <hr size="5" color="#B3424A">
+                @if($rubber->id > $id)
+                  <hr size="5" color="#B3424A">
+                  <h1>&emsp;{{ $rubber->maker }}</h1>
+                  <hr size="5" color="#B3424A">
+                @php
+                  $target = $rubber->maker;
+                @endphp
                  @foreach ($rubbers as $rubber)
                  <div class='flex'>
-                     <figure class="image"><img src="{{ $rubber->image }}" width="105" height="112"></figure>
-                     <h2 class='right'>
-                         <a href="/rubbers/{{ $rubber->id }}">・{{ $rubber->name }}</a>
-                     </h2>
+                        @if($target == $rubber->maker)
+                             <figure class="image"><img src="{{ $rubber->image }}" width="105" height="112"></figure>
+                             <h2 class='right'>
+                                 <a href="/rubbers/{{ $rubber->id }}">・{{ $rubber->name }}</a>
+                             </h2>
+                             @php
+                                $id = $rubber->id;
+                             @endphp
+                        @endif
                  </div>
                  @endforeach
+               @endif
             @endforeach
         </div>
     </body>
