@@ -46,7 +46,7 @@ class RubberController extends Controller
         elseif(!empty($keyword_name) && !empty($keyword_price) && $keyword_price_condition == 2)
         {
             $query = Rubber::query();
-            $rubbers = $query->where('name', 'like', '%' .$keyword_name. '%')-_where('price','<=', $keyword_price)->get();
+            $rubbers = $query->where('name', 'like', '%' .$keyword_name. '%')->where('price','<=', $keyword_price)->get();
             $message = "「".$keyword_rubbername . "」を含む名前と". $keyword_price."円以下の検索が完了しました";
             return view('rubbers/search')->with(['rubbers' => $rubbers, 'message' => $message,]);
         }

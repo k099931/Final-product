@@ -15,9 +15,9 @@
               position: relative;
            }
            .flex .right{
-              margin: 0 0 0 20px;
+              margin: 0 0 0 40px;
               padding: 0;
-              line-height: 5;
+              line-height: 2;
            }
            
                        .header {
@@ -121,7 +121,8 @@
                         <li class="nav_item"><a href="/">TOP</a></li><br>
                         <li class="nav_item"><a href="/rubbers">ラバー一覧</a></li><br>
                         <li class="nav_item"><a href="/ruckets">ラケット一覧</a></li><br>
-                        <li class="nav_item"><a href="/select">選定画面</a></li>
+                        <li class="nav_item"><a href="/select">選定画面</a></li><br>
+                        <li class="nav_item"><a href="/recommend">お勧め画面</a></li>
                     </ul>
                 </nav>
             </div>
@@ -130,6 +131,9 @@
             <hr size="5" color="#B3424A">
             <h1>選定結果</h1>
             <hr size="5" color="#B3424A">
+            <div class='flex'>
+            <figure class='image'><img src="https://selectionblog.s3.us-east-2.amazonaws.com/%E5%9B%B3.png" width="400" height="300"></figure>
+            <div class='right'>
             @if(isset($ruckets))
                 @foreach($ruckets as $rucket)
                     <h2 class='rucket'>使用ラケット：{{ $rucket->name }}</h2>
@@ -173,6 +177,8 @@
                     $rank = "A";
             @endphp
             <h2 class='rank'>ランク：{{ $rank }}</h2>
+            </div>
+            </div>
             @php
                 if($rucket->feeling == "Soft"):
                     if($frubber->hardness <= 30 && $brubber->hardness <= 30):
@@ -206,6 +212,7 @@
                     endif;
                 endif;
             @endphp
+            </div>
             <hr size="5" color="#B3424A">
             <h1 class='recommend'>こういう人向け</h2>
             <hr size="5" color="#B3424A">

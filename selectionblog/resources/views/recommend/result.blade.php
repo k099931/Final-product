@@ -121,7 +121,8 @@
                         <li class="nav_item"><a href="/">TOP</a></li><br>
                         <li class="nav_item"><a href="/rubbers">ラバー一覧</a></li><br>
                         <li class="nav_item"><a href="/ruckets">ラケット一覧</a></li><br>
-                        <li class="nav_item"><a href="/select">選定画面</a></li>
+                        <li class="nav_item"><a href="/select">選定画面</a></li><br>
+                        <li class="nav_item"><a href="/recommend">お勧め画面</a></li>
                     </ul>
                 </nav>
             </div>
@@ -129,14 +130,14 @@
         <div style="margin-top:50px;">
             <h1>あなたにはこのラバーがおすすめ！</h1>
             @if(isset($rubbers))
-            <div class='flex'>
                 @foreach($rubbers as $rubber)
+                <div class='flex'>
                     <figure class="image"><img src="{{ $rubber->image }}" width="105" height="112"></figure>
                     <h2 class='right'>
                        <a href="/rubbers/{{ $rubber->id }}">・{{ $rubber->name }}</a>
                     </h2>
+                </div>
                 @endforeach
-            </div>
             @endif
             @if(!empty($message))
             <div class="alert alert-primary" role="alert">{{ $message }}</div>

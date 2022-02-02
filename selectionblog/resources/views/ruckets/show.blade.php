@@ -148,7 +148,8 @@
                         <li class="nav_item"><a href="/">TOP</a></li><br>
                         <li class="nav_item"><a href="/rubbers">ラバー一覧</a></li><br>
                         <li class="nav_item"><a href="/ruckets">ラケット一覧</a></li><br>
-                        <li class="nav_item"><a href="/select">選定画面</a></li>
+                        <li class="nav_item"><a href="/select">選定画面</a></li><br>
+                        <li class="nav_item"><a href="/recommend">お勧め画面</a></li>
                     </ul>
                 </nav>
             </div>
