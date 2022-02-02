@@ -2,10 +2,25 @@
 <html lang="{{ str_replace('_', '-', app()->getlocale()) }}">
     <head>
         <meta charset="utf-8">
-        <title>TOP</title>
+        <title>お勧め結果</title>
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <style>
-            .header {
+           .flex {
+              display: flex;
+           }
+           .flex .image {
+              margin: 0;
+              padding: 0;
+              overflow: hidden;
+              position: relative;
+           }
+           .flex .right{
+              margin: 0 0 0 20px;
+              padding: 0;
+              line-height: 5;
+           }
+           
+                       .header {
                display: flex;
                justify-content: center;
                align-items: center;
@@ -92,16 +107,11 @@
             #drawer_input:checked ~ .nav_content {
                bottom: 0;
             }
-            
-            .user {
-               position: left;
-            }
         </style>
     </head>
     <body>
         <header class="header">
-            <div class="user">{{ Auth::user()->name }}</div>
-            <div class="logo">TOP</div>
+            <div class="logo">お勧め結果</div>
             <div class="nav">
                 <input id="drawer_input" class="drawer_hidden" type="checkbox">
                 <label for="drawer_input" class="drawer_open"><span></span></label>
@@ -111,30 +121,26 @@
                         <li class="nav_item"><a href="/">TOP</a></li><br>
                         <li class="nav_item"><a href="/rubbers">ラバー一覧</a></li><br>
                         <li class="nav_item"><a href="/ruckets">ラケット一覧</a></li><br>
-                        <li class="nav_item"><a href="/select">選定画面</a></li><br>
-                        <li class="nav_item"><a href="/recommend">お勧め画面</a></li>
+                        <li class="nav_item"><a href="/select">選定画面</a></li>
                     </ul>
                 </nav>
             </div>
         </header>
-        <h1 style="text-align:center" ><font size="7">卓球用具選定アプリ</font></h1>
-        <h2 style="text-align:center">～　あなたの求める用具を探そう！　～</h2>
-            <div class="explanation">
-                <hr size="5" color="#4B0082">
-                    <h1>・アプリ説明</h1>
-                <hr size="5" color="#4B0082">
-                <h2>
-                    本アプリを作成した経緯としては、卓球の用具について知識の無い初心者の方や、若い世代の方でも、自分に合った用具を選ぶことを可能にするアプリをあればいいな、との考えから作成を
-                    始めました。機能としては、「ラバー検索機能」や「ラケット検索機能」、「コメント機能」などがあります。
-                </h2><br>
+        <div style="margin-top:50px;">
+            <h1>あなたにはこのラバーがおすすめ！</h1>
+            @if(isset($rubbers))
+            <div class='flex'>
+                @foreach($rubbers as $rubber)
+                    <figure class="image"><img src="{{ $rubber->image }}" width="105" height="112"></figure>
+                    <h2 class='right'>
+                       <a href="/rubbers/{{ $rubber->id }}">・{{ $rubber->name }}</a>
+                    </h2>
+                @endforeach
             </div>
-            <div class="how-to-use">
-                <hr size="5" color="#4B0082">
-                    <h1>・アプリ使用方法</h1>
-                <hr size="5" color="#4B0082">
-                <h2>
-                    画面右上のメニューバーから、使用したい機能をクリックし、その画面へ遷移してください。
-                    そのあとは、自分に合った用具を探すだけです。
-                </h2>
-            </div>
+            @endif
+            @if(!empty($message))
+            <div class="alert alert-primary" role="alert">{{ $message }}</div>
+            @endif
+        </div>
     </body>
+</html>

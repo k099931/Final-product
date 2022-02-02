@@ -14,10 +14,13 @@
 
 
 Route::get('/', 'MenuController@index');
+Route::get('/recommend' , 'RecommendController@index');
 Route::get('/select' , 'SelectController@index');
 Route::get('/rubbers', 'RubberController@index');
 Route::get('/ruckets', 'RucketController@index');
 Route::get('/select/result' , 'SelectController@select');
+Route::get('/recommend/result' , 'RecommendController@recommend');
+Route::post('/recommend/result' , 'RecommendController@recommend');
 Route::post('/select/result' , 'SelectController@select');
 Route::post('/rubbers', 'RubberController@store');
 Route::post('/ruckets', 'RucketController@store');
