@@ -130,14 +130,14 @@
         <div style="margin-top:50px;">
             <h1>検索結果</h1>
             @if(isset($ruckets))
-            <div class='flex'>
                 @foreach($ruckets as $rucket)
+                <div class='flex'>
                     <figure class="image"><img src="{{ $rucket->image }}" width="258" height="120"></figure>
                     <h2 class='right'>
                        <a href="/ruckets/{{ $rucket->id }}">・{{ $rucket->name }}</a>
                     </h2>
+                </div>
                 @endforeach
-            </div>
             @endif
             @if(!empty($message))
             <div class="alert alert-primary" role="alert">{{ $message }}</div>

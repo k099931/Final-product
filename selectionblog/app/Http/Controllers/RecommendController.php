@@ -24,12 +24,12 @@ class RecommendController extends Controller
             if($keyword_group == 1)
             {
                 $query = Rubber::query();
-                $rubbers = $query;
+                $rubbers = $query->where('group','=',$keyword_group);
                 if($keyword_price == 1)
                 {
                     if($keyword_feature == 1)
                     {
-                        $rubbers = $rubbers->where('speed','>=',12)->get();
+                        $rubbers = $rubbers->where('speed','>=',13)->get();
                         $message = "あなたにお勧めのラバーの探索が完了しました！";
                         return view('recommend/result')->with(['rubbers' => $rubbers, 'message' => $message,]);
                         
@@ -37,15 +37,14 @@ class RecommendController extends Controller
                     
                     elseif($keyword_feature == 2)
                     {
-                        $rubbers = $rubbers->where('spin','>=',12)->get();
+                        $rubbers = $rubbers->where('spin','>=',11.5)->get();
                         $message = "あなたにお勧めのラバーの探索が完了しました！";
                         return view('recommend/result')->with(['rubbers' => $rubbers, 'message' => $message,]);
                     }
                     
                     elseif($keyword_feature == 3)
                     {
-                        $rubbers = $rubbers->where('spin','>=',10)->where('speed','>=',10)
-                                            ->orWhere('spin','<=',6)->where('speed','<=',6)->get();
+                        $rubbers = $rubbers->where('balance','<=',1.5)->get();
                         $message = "あなたにお勧めのラバーの探索が完了しました！";
                         return view('recommend/result')->with(['rubbers' => $rubbers, 'message' => $message,]);
                     }
@@ -56,7 +55,7 @@ class RecommendController extends Controller
                     $rubbers = $rubbers->where('price','<=',9000);
                     if($keyword_feature == 1)
                     {
-                        $rubbers = $rubbers->where('speed','>=',12)->get();
+                        $rubbers = $rubbers->where('speed','>=',13)->get();
                         $message = "あなたにお勧めのラバーの探索が完了しました！";
                         return view('recommend/result')->with(['rubbers' => $rubbers, 'message' => $message,]);
                         
@@ -64,15 +63,14 @@ class RecommendController extends Controller
                     
                     elseif($keyword_feature == 2)
                     {
-                        $rubbers = $rubbers->where('spin','>=',12)->get();
+                        $rubbers = $rubbers->where('spin','>=',11.5)->get();
                         $message = "あなたにお勧めのラバーの探索が完了しました！";
                         return view('recommend/result')->with(['rubbers' => $rubbers, 'message' => $message,]);
                     }
                     
                     elseif($keyword_feature == 3)
                     {
-                        $rubbers = $rubbers->where('spin','>=',10)->where('speed','>=',10)
-                                            ->orWhere('spin','<=',6)->where('speed','<=',6)->get();
+                        $rubbers = $rubbers->where('balance','<=',1.5)->get();
                         $message = "あなたにお勧めのラバーの探索が完了しました！";
                         return view('recommend/result')->with(['rubbers' => $rubbers, 'message' => $message,]);
                     }
@@ -83,7 +81,7 @@ class RecommendController extends Controller
                     $rubbers = $rubbers->where('price','<=',7000);
                     if($keyword_feature == 1)
                     {
-                        $rubbers = $rubbers->where('speed','>=',12)->get();
+                        $rubbers = $rubbers->where('speed','>=',13)->get();
                         $message = "あなたにお勧めのラバーの探索が完了しました！";
                         return view('recommend/result')->with(['rubbers' => $rubbers, 'message' => $message,]);
                         
@@ -91,15 +89,14 @@ class RecommendController extends Controller
                     
                     elseif($keyword_feature == 2)
                     {
-                        $rubbers = $rubbers->where('spin','>=',12)->get();
+                        $rubbers = $rubbers->where('spin','>=',11.5)->get();
                         $message = "あなたにお勧めのラバーの探索が完了しました！";
                         return view('recommend/result')->with(['rubbers' => $rubbers, 'message' => $message,]);
                     }
                     
                     elseif($keyword_feature == 3)
                     {
-                        $rubbers = $rubbers->where('spin','>=',10)->where('speed','>=',10)
-                                            ->orWhere('spin','<=',6)->where('speed','<=',6)->get();
+                        $rubbers = $rubbers->where('balance','<=',1.5)->get();
                         $message = "あなたにお勧めのラバーの探索が完了しました！";
                         return view('recommend/result')->with(['rubbers' => $rubbers, 'message' => $message,]);
                     }
@@ -110,7 +107,7 @@ class RecommendController extends Controller
                     $rubbers = $rubbers->where('price','<=',4000);
                     if($keyword_feature == 1)
                     {
-                        $rubbers = $rubbers->where('speed','>=',12)->get();
+                        $rubbers = $rubbers->where('speed','>=',13)->get();
                         $message = "あなたにお勧めのラバーの探索が完了しました！";
                         return view('recommend/result')->with(['rubbers' => $rubbers, 'message' => $message,]);
                         
@@ -118,15 +115,14 @@ class RecommendController extends Controller
                     
                     elseif($keyword_feature == 2)
                     {
-                        $rubbers = $rubbers->where('spin','>=',12)->get();
+                        $rubbers = $rubbers->where('spin','>=',11.5)->get();
                         $message = "あなたにお勧めのラバーの探索が完了しました！";
                         return view('recommend/result')->with(['rubbers' => $rubbers, 'message' => $message,]);
                     }
                     
                     elseif($keyword_feature == 3)
                     {
-                        $rubbers = $rubbers->where('spin','>=',10)->where('speed','>=',10)
-                                            ->orWhere('spin','<=',6)->where('speed','<=',6)->get();
+                        $rubbers = $rubbers->where('balance','<=',1.5)->get();
                         $message = "あなたにお勧めのラバーの探索が完了しました！";
                         return view('recommend/result')->with(['rubbers' => $rubbers, 'message' => $message,]);
                     }

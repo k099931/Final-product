@@ -16,13 +16,38 @@ class RubbersTableSeeder extends Seeder
         \DB::table('rubbers')->insert([
             [
                 'maker' => 'Nittaku',
+                'name' => 'ファスターク G-1',
+                'image' =>'https://selectionblog.s3.us-east-2.amazonaws.com/Rubber/Fastarc+G-1.png',
+                'speed' => 15.00,
+                'spin' => 12.50,
+                'hardness' => 37.5,
+                'price' => 6600,
+                'group' => 1,
+                'balance' => 2.50,
+            ],
+            
+            [
+                'maker' => 'Nittaku',
+                'name' => 'ファスターク C-1',
+                'image' =>'https://selectionblog.s3.us-east-2.amazonaws.com/Rubber/Fastarc+C-1.png',
+                'speed' => 15.25,
+                'spin' => 12.25,
+                'hardness' => 35.0,
+                'price' => 6380,
+                'group' => 1,
+                'balance' => 3.00,
+            ],
+            
+            [
+                'maker' => 'Nittaku',
                 'name' => 'ファクティブ',
                 'image' =>'https://selectionblog.s3.us-east-2.amazonaws.com/Rubber/FACTIVE.png',
                 'speed' => 14.75,
                 'spin' => 11.75,
                 'hardness' => 35.0,
                 'price' => 4400,
-                'user_id' => 1,
+                'group' => 1,
+                'balance' => 3.00,
             ],
             
             [
@@ -33,7 +58,8 @@ class RubbersTableSeeder extends Seeder
                 'spin' => 12.25,
                 'hardness' => 37.5,
                 'price' => 6600,
-                'user_id' => 1,
+                'group' => 1,
+                'balance' => 3.25,
             ],
             
             [
@@ -44,7 +70,8 @@ class RubbersTableSeeder extends Seeder
                 'spin' => 11.75,
                 'hardness' => 35.0,
                 'price' => 4840,
-                'user_id' => 1,
+                'group' => 1,
+                'balance' => 3.75,
             ],
             
             [
@@ -55,7 +82,8 @@ class RubbersTableSeeder extends Seeder
                 'spin' => 12.25,
                 'hardness' => 35.0,
                 'price' => 4180,
-                'user_id' => 1,
+                'group' => 1,
+                'balance' => 2.00,
             ],
             
             [
@@ -66,7 +94,8 @@ class RubbersTableSeeder extends Seeder
                 'spin' => 11.55,
                 'hardness' => 35.0,
                 'price' => 4180,
-                'user_id' => 1,
+                'group' => 1,
+                'balance' => 3.45,
             ],
             
             [
@@ -77,7 +106,8 @@ class RubbersTableSeeder extends Seeder
                 'spin' => 11.50,
                 'hardness' => 30.0,
                 'price' => 4180,
-                'user_id' => 1,
+                'group' => 1,
+                'balance' => 3.50,
             ],
             
             [
@@ -88,7 +118,8 @@ class RubbersTableSeeder extends Seeder
                 'spin' => 10.00,
                 'hardness' => 30.0,
                 'price' => 3520,
-                'user_id' => 1,
+                'group' => 1,
+                'balance' => 2.50,
             ],
             
             [
@@ -99,7 +130,8 @@ class RubbersTableSeeder extends Seeder
                 'spin' => 11.50,
                 'hardness' => 30.0,
                 'price' => 4070,
-                'user_id' => 1,
+                'group' => 1,
+                'balance' => 2.25,
             ],
             
             [
@@ -110,7 +142,8 @@ class RubbersTableSeeder extends Seeder
                 'spin' => 15.00,
                 'hardness' => 35.0,
                 'price' => 6930,
-                'user_id' => 1,
+                'group' => 1,
+                'balance' => 0.25,
             ],
             
             [
@@ -121,7 +154,8 @@ class RubbersTableSeeder extends Seeder
                 'spin' => 15.00,
                 'hardness' => 45.0,
                 'price' => 6600,
-                'user_id' => 1,
+                'group' => 1,
+                'balance' => 0.25,
             ],
             
             [
@@ -132,7 +166,8 @@ class RubbersTableSeeder extends Seeder
                 'spin' => 15.00,
                 'hardness' => 42.5,
                 'price' => 5280,
-                'user_id' => 1,
+                'group' => 1,
+                'balance' => 3.75,
             ],
             
             [
@@ -143,7 +178,8 @@ class RubbersTableSeeder extends Seeder
                 'spin' => 9.25,
                 'hardness' => 32.5,
                 'price' => 2750,
-                'user_id' => 1,
+                'group' => 1,
+                'balance' => 1.25,
             ],
             
             [
@@ -154,7 +190,8 @@ class RubbersTableSeeder extends Seeder
                 'spin' => 9.00,
                 'hardness' => 35.0,
                 'price' => 2750,
-                'user_id' => 1,
+                'group' => 1,
+                'balance' => 1.25,
             ],
             
             [
@@ -165,7 +202,8 @@ class RubbersTableSeeder extends Seeder
                 'spin' => 12.00,
                 'hardness' => 35.0,
                 'price' => 0000,
-                'user_id' => 1,
+                'group' => 1,
+                'balance' => 1.50,
             ],
             
             [
@@ -176,7 +214,8 @@ class RubbersTableSeeder extends Seeder
                 'spin' => 13.00,
                 'hardness' => 39.5,
                 'price' => 0000,
-                'user_id' => 1,
+                'group' => 1,
+                'balance' => 00.00,
             ],
             
             [
@@ -187,7 +226,8 @@ class RubbersTableSeeder extends Seeder
                 'spin' => 11.00,
                 'hardness' => 40.0,
                 'price' => 0000,
-                'user_id' => 1,
+                'group' => 1,
+                'balance' => 3.00,
             ],
             
             [
@@ -198,7 +238,8 @@ class RubbersTableSeeder extends Seeder
                 'spin' => 11.50,
                 'hardness' => 30.5,
                 'price' => 0000,
-                'user_id' => 1,
+                'group' => 1,
+                'balance' => 1.50,
             ],
             
             [
@@ -209,7 +250,8 @@ class RubbersTableSeeder extends Seeder
                 'spin' => 11.25,
                 'hardness' => 30.5,
                 'price' => 0000,
-                'user_id' => 1,
+                'group' => 1,
+                'balance' => 2.00,
             ],
             
             [
@@ -220,7 +262,8 @@ class RubbersTableSeeder extends Seeder
                 'spin' => 10.50,
                 'hardness' => 30.5,
                 'price' => 0000,
-                'user_id' => 1,
+                'group' => 1,
+                'balance' => 3.00,
             ],
             
             [
@@ -231,7 +274,8 @@ class RubbersTableSeeder extends Seeder
                 'spin' => 10.80,
                 'hardness' => 30.0,
                 'price' => 5500,
-                'user_id' => 1,
+                'group' => 1,
+                'balance' => 2.20,
             ],
             
             [
@@ -242,7 +286,8 @@ class RubbersTableSeeder extends Seeder
                 'spin' => 10.30,
                 'hardness' => 30.0,
                 'price' => 6600,
-                'user_id' => 1,
+                'group' => 1,
+                'balance' => 4.20,
             ],
             
             [
@@ -253,7 +298,8 @@ class RubbersTableSeeder extends Seeder
                 'spin' => 10.20,
                 'hardness' => 30.0,
                 'price' => 4620,
-                'user_id' => 1,
+                'group' => 1,
+                'balance' => 2.60,
             ],
             
             [
@@ -264,7 +310,8 @@ class RubbersTableSeeder extends Seeder
                 'spin' => 8.00,
                 'hardness' => 33.0,
                 'price' => 3520,
-                'user_id' => 1,
+                'group' => 1,
+                'balance' => 2.00,
             ],
             
             [
@@ -275,7 +322,8 @@ class RubbersTableSeeder extends Seeder
                 'spin' => 8.00,
                 'hardness' => 30.0,
                 'price' => 3520,
-                'user_id' => 1,
+                'group' => 1,
+                'balance' => 2.00,
             ],
             
             [
@@ -286,7 +334,8 @@ class RubbersTableSeeder extends Seeder
                 'spin' => 11.00,
                 'hardness' => 45.0,
                 'price' => 5500,
-                'user_id' => 1,
+                'group' => 1,
+                'balance' => 0.50,
             ],
             
             [
@@ -297,7 +346,8 @@ class RubbersTableSeeder extends Seeder
                 'spin' => 9.00,
                 'hardness' => 33.0,
                 'price' => 3080,
-                'user_id' => 1,
+                'group' => 1,
+                'balance' => 0.50,
             ],
             
             [
@@ -308,7 +358,8 @@ class RubbersTableSeeder extends Seeder
                 'spin' => 10.00,
                 'hardness' => 28.0,
                 'price' => 3080,
-                'user_id' => 1,
+                'group' => 1,
+                'balance' => 3.50,
             ],
             
         ]);

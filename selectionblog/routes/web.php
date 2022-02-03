@@ -12,6 +12,14 @@
 |
 */
 
+Route::group(['middleware' => ['auth']], function(){
+    
+    Route::post('/rubbers', 'RubberController@store');
+    Route::post('/ruckets', 'RucketController@store');
+    Route::delete('/rubbers/{rubber}', 'RubberController@delete');
+    Route::delete('/ruckets/{rucket}', 'RucketController@delete');
+    
+});
 
 Route::get('/', 'MenuController@index');
 Route::get('/recommend' , 'RecommendController@index');
@@ -22,16 +30,12 @@ Route::get('/select/result' , 'SelectController@select');
 Route::get('/recommend/result' , 'RecommendController@recommend');
 Route::post('/recommend/result' , 'RecommendController@recommend');
 Route::post('/select/result' , 'SelectController@select');
-Route::post('/rubbers', 'RubberController@store');
-Route::post('/ruckets', 'RucketController@store');
 Route::get('/rubbers/search', 'RubberController@search');
 Route::get('/ruckets/search', 'RucketController@search');
 Route::post('/rubbers/search', 'RubberController@search');
 Route::post('/ruckets/search', 'RucketController@search');
 Route::get('/rubbers/{rubber}', 'RubberController@show');
 Route::get('/ruckets/{rucket}', 'RucketController@show');
-Route::delete('/rubbers/{rubber}', 'RubberController@delete');
-Route::delete('/ruckets/{rucket}', 'RucketController@delete');
     
 Auth::routes();
 
