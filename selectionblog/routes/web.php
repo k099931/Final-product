@@ -21,7 +21,7 @@ Route::group(['middleware' => ['auth']], function(){
     
 });
 
-Route::get('/', 'MenuController@index');
+Route::get('/menu', 'MenuController@index');
 Route::get('/recommend' , 'RecommendController@index');
 Route::get('/select' , 'SelectController@index');
 Route::get('/rubbers', 'RubberController@index');
