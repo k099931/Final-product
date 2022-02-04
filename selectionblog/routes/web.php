@@ -21,8 +21,8 @@ Route::group(['middleware' => ['auth']], function(){
     
 });
 
-Route::get('/login/google' , 'Auth\LoginController@redirectToGoogle');
-Route::get('/login/google/callback' , 'Auth\LoginController@handleGoogleCallback');
+Route::get('login/google' , 'Auth\LoginController@redirectToGoogle');
+Route::get('login/google/callback' , 'Auth\LoginController@handleGoogleCallback');
 Route::get('/menu', 'MenuController@index');
 Route::get('/recommend' , 'RecommendController@index');
 Route::get('/select' , 'SelectController@index');
