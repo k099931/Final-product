@@ -58,7 +58,7 @@ class LoginController extends Controller
         }
         
         \Auth::login($user, true);
-        return redirect('/menu');
+        return redirect('/home');
     }
     
     public function createUserByGoogle($gUser)
