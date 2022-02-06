@@ -152,7 +152,7 @@
     </head>
     <body>
         <header class="header">
-            <div class="logo">ラバー詳細</div>
+            <div class="logo"><figure class="image"><img src="https://selectionblog.s3.us-east-2.amazonaws.com/%E3%83%AD%E3%82%B4%E6%96%87%E5%AD%97%E4%BB%98.png" width="250" height="50"></figure></div>
             <div class="nav">
                 <input id="drawer_input" class="drawer_hidden" type="checkbox">
                 <label for="drawer_input" class="drawer_open"><span></span></label>
@@ -238,5 +238,7 @@
                template: '<span><span v-for="number in parseInt(value)">&#x2B50;</span></span>'
             });
         </script>
+        <script src="https://ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </body>
 </html>
