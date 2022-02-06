@@ -33,7 +33,7 @@ return [
     'google' => [
         'client_id' => '899831527843-lahirmqhmr46bcgt55aq707kja6shgo6.apps.googleusercontent.com',
         'client_secret' => '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',
-        'redirect' => 'http://localhost:8080/login/google/callback',
+        'redirect' => 'https://selection-blog.herokuapp.com/login/google/callback',
         
     ],
 
