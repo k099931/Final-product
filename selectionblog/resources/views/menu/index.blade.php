@@ -125,8 +125,7 @@
                 </nav>
             </div>
         </header>
-        <h1 style="text-align:center" ><font size="7">卓球用具選定アプリ</font></h1>
-        <h2 style="text-align:center">～　あなたの求める用具を探そう！　～</h2>
+        <figure class="image"><img src="https://selectionblog.s3.us-east-2.amazonaws.com/%E8%A6%8B%E5%87%BA%E3%81%97%E7%94%BB%E5%83%8F.png" width="1024" height="512"></figure>
             <div class="explanation">
                 <hr size="5" color="#4B0082">
                     <h1>・アプリ説明</h1>
