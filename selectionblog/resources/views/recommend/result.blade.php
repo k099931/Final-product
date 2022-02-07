@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>お勧め結果</title>
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/app.css" rel="stylesheet">
         <style>
            .flex {
               display: flex;
@@ -144,6 +144,9 @@
             @if(!empty($message))
             <div class="alert alert-primary" role="alert">{{ $message }}</div>
             @endif
+        </div>
+        <div class="footer">
+            <a href="/recommend">戻る</a>
         </div>
         <script src="https://ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>

@@ -169,7 +169,7 @@
             </div>
         </header>
         <hr size="5" color="#B3424A">
-        <h1>{{ $rubber->maker }}&emsp;/&emsp;{{ $rubber->name }}</h1>
+        <h1>&emsp;{{ $rubber->maker }}&emsp;/&emsp;{{ $rubber->name }}</h1>
         <hr size="5" color="#B3424A">
         <div class='flex'>
             <figure class='image'><img src="{{ $rubber->image }}" width="280" height="300"></figure>
@@ -185,7 +185,7 @@
         <div class='evaluation'>
             <span style="border-bottom: solid 2px blue;">
                 <hr size="5" color="#B3424A">
-                <h1>皆の評価</h1>
+                <h1>&emsp;皆の評価</h1>
                 <hr size="5" color="#B3424A">
                 <div class="comments">
                     @foreach ($rubbercomments as $rubbercomment)
@@ -206,7 +206,7 @@
                 @csrf
                 <div class="create">
                     <hr size="5" color="#B3424A">
-                    <h2>コメント</h2>
+                    <h2>&emsp;コメント</h2>
                     <hr size="5" color="#B3424A">
                         <div class="rate-form">
                            <input id="star5" type="radio" name="rubbercomment[stars]" value="5">
@@ -220,17 +220,17 @@
                            <input id="star1" type="radio" name="rubbercomment[stars]" value="1">
                            <label for="star1">★</label>
                         </div>
-                    <textarea name="rubbercomment[comment]" placeholder="素晴らしいラバーです。">{{ old('rubbercomment.comment') }}</textarea>
+                    <textarea class="col-md-offset-2 col-md-5" name="rubbercomment[comment]" rows="8" placeholder="素晴らしいラバーです。">{{ old('rubbercomment.comment') }}</textarea>
                     <p class="comment_error" style="color:red">{{ $errors->first('rubbercomment.comment') }}</p>
                     <input type="hidden" name="rubbercomment[rubber_id]" value="{{ $rubber->id }}">
                     <input type="hidden" name="rubbercomment[user_id]" value="{{ Auth::user()->id }}">
                 </div>
-                <input type="submit" value="保存"/>
+                <input type="submit" value="保存" class="btn btn-primary"></input>
             </form>
         </div>
         
         <div class="footer">
-            <a href="/">戻る</a>
+            <a href="/rubbers">戻る</a>
         </div>
         <script>
             Vue.component('v-star', {

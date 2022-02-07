@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>選定画面</title>
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/app.css" rel="stylesheet">
         <style>
            .flex {
               display: flex;
@@ -155,7 +155,8 @@
                 <hr size="5" color="#B3424A">
                 <h1>&emsp;Q1.&emsp;ラケットは何を使いますか？</h1>
                 <hr size="5" color="#B3424A">
-                <div class='form-group'>
+                <div class='form-group form-group-lg'>
+                    <label class="col-md-2 control-label">ラケット名</label>
                     <input type="text" class="form-control col-md-5" placeholder="ラケット名を入力してください" name="rucket">
                 </div>
             </div>
@@ -163,7 +164,8 @@
                 <hr size="5" color="#B3424A">
                 <h1>&emsp;Q2.&emsp;フォアラバーは何を使いますか？</h1>
                 <hr size="5" color="#B3424A">
-                <div class='form-group'>
+                <div class='form-group form-group-lg'>
+                    <label class="col-md-2 control-label">バックラバー名</label>
                     <input type="text" class="form-control col-md-5" placeholder="フォアラバー名を入力してください" name="f_rubber">
                 </div>
             </div>
@@ -171,13 +173,16 @@
                 <hr size="5" color="#B3424A">
                 <h1>&emsp;Q3.&emsp;バックラバーは何を使いますか？</h1>
                 <hr size="5" color="#B3424A">
-                <div class='form-group'>
+                <div class='form-group form-group-lg'>
+                    <label class="col-md-2 control-label">バックラバー名</label>
                     <input type="text" class="form-control col-md-5" placeholder="バックラバー名を入力してください" name="b_rubber">
                 </div>
             </div>
             </div>
             <div class='form-group'>
-                <button type="submit">保存</button>
+                <div class="col-md-offset-2 col-md-5">
+                    <button type="submit" class="btn btn-primary btn-block">保存</button>
+                </div>
             </div>
         </form>
         <script src="https://ajax/libs/jquery/1.11.0/jquery.min.js"></script>

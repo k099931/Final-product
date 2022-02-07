@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>ラケット一覧</title>
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/app.css" rel="stylesheet">
         <style>
            .flex {
               display: flex;
@@ -153,7 +153,9 @@
            </div>
            
            <div class='form-group'>
-              <button type="submit">検索</button>
+              <div class="col-md-offset-2 col-md-5">
+                <button type="submit" class='btn btn-primary btn-block'>検索</button>
+              </div>
            </div>
         
         

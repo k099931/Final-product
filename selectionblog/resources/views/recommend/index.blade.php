@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>お勧め画面</title>
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/app.css" rel="stylesheet">
         <style>
            .flex {
               display: flex;
@@ -40,7 +40,7 @@
               line-height: 5;
            }
            
-                       .header {
+            .header {
                display: flex;
                justify-content: center;
                align-items: center;
@@ -156,7 +156,7 @@
                 <h1>&emsp;Q1.&emsp;お探しのラバーの種類は何ですか？</h1>
                 <hr size="5" color="#B3424A">
                 <div class='form-group'>
-                    <div class="col-md-6">
+                    <div class="col-md-6 control-label">
                         <div class="form-check">
                             <input class="form-check-input" type="radio" id="group01" name="group" value="1">
                             <label class="form-check-label" for="group01">裏ソフトラバー</lavel>
@@ -224,7 +224,9 @@
             </div>
             </div>
             <div class='form-group'>
-                <button type="submit">保存</button>
+                <div class="col-md-offset-2 col-md-5">
+                    <button type="submit" class="btn btn-primary btn-block">保存</button>
+                </div>
             </div>
         </form>
         <script src="https://ajax/libs/jquery/1.11.0/jquery.min.js"></script>

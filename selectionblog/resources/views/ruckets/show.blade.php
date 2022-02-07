@@ -6,7 +6,7 @@
         <title>ラケット詳細</title>
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link rel="stylesheet" href="/css/app.css">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/app.css" rel="stylesheet">
         <style>
            .flex {
               display: flex;
@@ -156,7 +156,7 @@
             </div>
         </header>
         <hr size="5" color="#476FBF">
-        <h1>{{ $rucket->maker }}&emsp;/&emsp;{{ $rucket->name }}</h1>
+        <h1>&emsp;{{ $rucket->maker }}&emsp;/&emsp;{{ $rucket->name }}</h1>
         <hr size="5" color="#476FBF">
         <div class='flex'>
             <figure class='image'><img src="{{ $rucket->image }}" width="516" height="240"></figure>
@@ -164,15 +164,15 @@
                 <h2 class='right'>
                 反発：{{ $rucket->repulsion }}<br><br>
                 打球感：{{ $rucket->feeling }}<br><br>
-                重量：{{ $rucket->weight }}<br><br>
-                価格：{{ $rucket->price}}
+                重量：±{{ $rucket->weight }}g<br><br>
+                価格：{{ $rucket->price}}円
                </h2>
             </span>
         </div>
         <div class='evaluation'>
             <span style="border-bottom: solid 2px blue;">
                 <hr size="5" color="#476FBF">
-                <h1>皆の評価</h1>
+                <h1>&emsp;皆の評価</h1>
                 <hr size="5" color="#476FBF">
                 <div class="comments">
                     @foreach ($rucketcomments as $rucketcomment)
@@ -193,7 +193,7 @@
                 @csrf
                 <div class="create">
                     <hr size="5" color="#476FBF">
-                    <h2>コメント</h2>
+                    <h2>&emsp;コメント</h2>
                     <hr size="5" color="#476FBF">
                         <div class="rate-form">
                            <input id="star5" type="radio" name="rucketcomment[stars]" value="5">
@@ -207,17 +207,17 @@
                            <input id="star1" type="radio" name="rucketcomment[stars]" value="1">
                            <label for="star1">★</label>
                         </div>
-                    <textarea name="rucketcomment[comment]" placeholder="素晴らしいラケットです。">{{ old('rucketcomment.comment') }}</textarea>
+                    <textarea class="col-md-offset-2 col-md-5" name="rucketcomment[comment]" rows="8" placeholder="素晴らしいラケットです。">{{ old('rucketcomment.comment') }}</textarea>
                     <p class="comment_error" style="color:red">{{ $errors->first('rucketcomment.comment') }}</p>
                     <input type="hidden" name="rucketcomment[rucket_id]" value="{{ $rucket->id }}">
                     <input type="hidden" name="rucketcomment[user_id]" value="{{ Auth::user()->id }}">
                 </div>
-                <input type="submit" value="保存"/>
+                <input type="submit" value="保存" class="btn btn-primary"></input>
             </form>
         </div>
         
         <div class="footer">
-            <a href="/">戻る</a>
+            <a href="/ruckets">戻る</a>
         </div>
         <script src="https://ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
