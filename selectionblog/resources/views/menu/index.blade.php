@@ -104,6 +104,11 @@
                 display: block;
                 text-align: left;
             }
+            
+            .heading {
+                display: block;
+                text-align: center;
+            }
         </style>
     </head>
     <body>
@@ -125,7 +130,9 @@
                 </nav>
             </div>
         </header>
-        <figure class="image"><img src="https://selectionblog.s3.us-east-2.amazonaws.com/%E8%A6%8B%E5%87%BA%E3%81%97%E7%94%BB%E5%83%8F.png" width="1024" height="512"></figure>
+        <div class="heading">
+            <figure class="image"><img src="https://selectionblog.s3.us-east-2.amazonaws.com/%E8%A6%8B%E5%87%BA%E3%81%97%E7%94%BB%E5%83%8F.png" width="1024" height="512"></figure>
+        </div>
             <div class="explanation">
                 <hr size="5" color="#4B0082">
                     <h1>・アプリ説明</h1>
