@@ -31,8 +31,8 @@ return [
     ],
     
     'google' => [
-        'client_id' => '899831527843-lahirmqhmr46bcgt55aq707kja6shgo6.apps.googleusercontent.com',
-        'client_secret' => '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',
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
         'redirect' => 'http://selection-blog.herokuapp.com/login/google/callback',
         
     ],
