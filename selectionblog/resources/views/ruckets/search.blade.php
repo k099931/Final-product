@@ -113,6 +113,7 @@
     </head>
     <body>
         <header class="header">
+            {{--　ヘッダー内ロゴ画像　--}}
             <div class="logo"><figure class="image"><img src="https://selectionblog.s3.us-east-2.amazonaws.com/%E3%83%AD%E3%82%B4%E6%96%87%E5%AD%97%E4%BB%98.png" width="250" height="50"></figure></div>
             <div class="nav">
                 <input id="drawer_input" class="drawer_hidden" type="checkbox">
@@ -120,6 +121,7 @@
                 
                 <nav class="nav_content">
                     <ul class="nav_list">
+                        {{--　ハンバーガーメニュー　--}}
                         <li class="nav_item"><a href="/">TOP</a></li><br>
                         <li class="nav_item"><a href="/rubbers">ラバー一覧</a></li><br>
                         <li class="nav_item"><a href="/ruckets">ラケット一覧</a></li><br>
@@ -131,6 +133,7 @@
         </header>
         <div style="margin-top:50px;">
             <h1>検索結果</h1>
+            {{--　検索結果表示　--}}
             @if(isset($ruckets))
                 @foreach($ruckets as $rucket)
                 <div class='flex'>
@@ -142,6 +145,7 @@
                 @endforeach
             @endif
             @if(!empty($message))
+            {{--　メッセージ表示　--}}
             <div class="alert alert-primary" role="alert">{{ $message }}</div>
             @endif
         </div>

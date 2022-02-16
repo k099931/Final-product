@@ -139,6 +139,7 @@
     </head>
     <body>
         <header class="header">
+            {{--　ヘッダー内ロゴ画像　--}}
             <div class="logo"><figure class="image"><img src="https://selectionblog.s3.us-east-2.amazonaws.com/%E3%83%AD%E3%82%B4%E6%96%87%E5%AD%97%E4%BB%98.png" width="250" height="50"></figure></div>
             <div class="nav">
                 <input id="drawer_input" class="drawer_hidden" type="checkbox">
@@ -146,6 +147,7 @@
                 
                 <nav class="nav_content">
                     <ul class="nav_list">
+                        {{--　ハンバーガーメニュー　--}}
                         <li class="nav_item"><a href="/">TOP</a></li><br>
                         <li class="nav_item"><a href="/rubbers">ラバー一覧</a></li><br>
                         <li class="nav_item"><a href="/ruckets">ラケット一覧</a></li><br>
@@ -155,6 +157,7 @@
                 </nav>
             </div>
         </header>
+        {{--　ラケット詳細情報表示　--}}
         <hr size="5" color="#476FBF">
         <h1>&emsp;{{ $rucket->maker }}&emsp;/&emsp;{{ $rucket->name }}</h1>
         <hr size="5" color="#476FBF">
@@ -170,6 +173,7 @@
             </span>
         </div>
         <div class='evaluation'>
+            {{--　ラケット評価表示　--}}
             <span style="border-bottom: solid 2px blue;">
                 <hr size="5" color="#476FBF">
                 <h1>&emsp;皆の評価</h1>
@@ -179,6 +183,7 @@
                        <div class="comment">
                            @if( $rucketcomment->rucket_id === $rucket->id )
                               @for ($i = 0; $i <  $rucketcomment->stars ; $i++ )
+                                    {{--　星評価　--}}
                                     <p style="display:inline;"><font size="6" color="#ffcc00">★</font></p>
                               @endfor
                               <p class="author">{{ $rucketcomment->user->name }}</p>
@@ -190,12 +195,14 @@
                 </div>
             </span>
             <form action="/ruckets" method="POST">
+                {{--　評価書き込み　--}}
                 @csrf
                 <div class="create">
                     <hr size="5" color="#476FBF">
                     <h2>&emsp;コメント</h2>
                     <hr size="5" color="#476FBF">
                         <div class="rate-form">
+                        {{--　星5つ中の評価　--}}
                            <input id="star5" type="radio" name="rucketcomment[stars]" value="5">
                            <label for="star5">★</label>
                            <input id="star4" type="radio" name="rucketcomment[stars]" value="4">
@@ -207,16 +214,19 @@
                            <input id="star1" type="radio" name="rucketcomment[stars]" value="1">
                            <label for="star1">★</label>
                         </div>
+                        {{--　コメント書き込み　--}}
                     <textarea class="col-md-offset-2 col-md-5" name="rucketcomment[comment]" rows="8" placeholder="素晴らしいラケットです。">{{ old('rucketcomment.comment') }}</textarea>
                     <p class="comment_error" style="color:red">{{ $errors->first('rucketcomment.comment') }}</p>
                     <input type="hidden" name="rucketcomment[rucket_id]" value="{{ $rucket->id }}">
                     <input type="hidden" name="rucketcomment[user_id]" value="{{ Auth::user()->id }}">
                 </div>
+                {{--　保存ボタン　--}}
                 <input type="submit" value="保存" class="btn btn-primary"></input>
             </form>
         </div>
         
         <div class="footer">
+            {{--　戻るボタン　--}}
             <a href="/ruckets">戻る</a>
         </div>
         <script src="https://ajax/libs/jquery/1.11.0/jquery.min.js"></script>

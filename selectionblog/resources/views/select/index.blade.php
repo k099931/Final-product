@@ -132,6 +132,7 @@
     <body>
         
         <header class="header">
+            {{--　ヘッダー内ロゴ画像　--}}
             <div class="logo"><figure class="image"><img src="https://selectionblog.s3.us-east-2.amazonaws.com/%E3%83%AD%E3%82%B4%E6%96%87%E5%AD%97%E4%BB%98.png" width="250" height="50"></figure></div>
             <div class="nav">
                 <input id="drawer_input" class="drawer_hidden" type="checkbox">
@@ -139,6 +140,7 @@
                 
                 <nav class="nav_content">
                     <ul class="nav_list">
+                        {{--　ハンバーガーメニュー　--}}
                         <li class="nav_item"><a href="/">TOP</a></li><br>
                         <li class="nav_item"><a href="/rubbers">ラバー一覧</a></li><br>
                         <li class="nav_item"><a href="/ruckets">ラケット一覧</a></li><br>
@@ -149,9 +151,11 @@
             </div>
         </header>
         <form action='/select/result' method="POST">
+            {{--　質問項目　--}}
            @csrf
             <div class='selection'>
             <div class='question-1'>
+                {{--　質問１　--}}
                 <hr size="5" color="#B3424A">
                 <h1>&emsp;Q1.&emsp;ラケットは何を使いますか？</h1>
                 <hr size="5" color="#B3424A">
@@ -161,6 +165,7 @@
                 </div>
             </div>
             <div class='question-2'>
+                {{--　質問２　--}}
                 <hr size="5" color="#B3424A">
                 <h1>&emsp;Q2.&emsp;フォアラバーは何を使いますか？</h1>
                 <hr size="5" color="#B3424A">
@@ -170,6 +175,7 @@
                 </div>
             </div>
             <div class='question-3'>
+                {{--　質問３　--}}
                 <hr size="5" color="#B3424A">
                 <h1>&emsp;Q3.&emsp;バックラバーは何を使いますか？</h1>
                 <hr size="5" color="#B3424A">
@@ -180,6 +186,7 @@
             </div>
             </div>
             <div class='form-group'>
+                {{--　保存ボタン　--}}
                 <div class="col-md-offset-2 col-md-5">
                     <button type="submit" class="btn btn-primary btn-block">保存</button>
                 </div>

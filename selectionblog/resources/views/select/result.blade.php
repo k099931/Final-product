@@ -113,6 +113,7 @@
     </head>
     <body>
         <header class="header">
+            {{--　ヘッダー内ロゴ画像　--}}
             <div class="logo"><figure class="image"><img src="https://selectionblog.s3.us-east-2.amazonaws.com/%E3%83%AD%E3%82%B4%E6%96%87%E5%AD%97%E4%BB%98.png" width="250" height="50"></figure></div>
             <div class="nav">
                 <input id="drawer_input" class="drawer_hidden" type="checkbox">
@@ -120,6 +121,7 @@
                 
                 <nav class="nav_content">
                     <ul class="nav_list">
+                        {{--　ハンバーガーメニュー　--}}
                         <li class="nav_item"><a href="/">TOP</a></li><br>
                         <li class="nav_item"><a href="/rubbers">ラバー一覧</a></li><br>
                         <li class="nav_item"><a href="/ruckets">ラケット一覧</a></li><br>
@@ -130,12 +132,15 @@
             </div>
         </header>
         <div style="margin-top:50px;">
+            {{--　選定結果表示　--}}
             <hr size="5" color="#B3424A">
             <h1>選定結果</h1>
             <hr size="5" color="#B3424A">
             <div class='flex'>
+            {{--　ランク表　--}}
             <figure class='image'><img src="https://selectionblog.s3.us-east-2.amazonaws.com/%E5%9B%B3.png" width="400" height="300"></figure>
             <div class='right'>
+            {{--　使用用具表示　--}}
             @if(isset($ruckets))
                 @foreach($ruckets as $rucket)
                     <h2 class='rucket'>使用ラケット：{{ $rucket->name }}</h2>
@@ -152,6 +157,7 @@
                 @endforeach
             @endif
             @php
+            {{--　ラケットの硬さによって数値の割り振り　--}}
                 if($rucket->repulsion == "Slow")
                     $repulsion = 5.5;
                 else if($rucket->repulsion == "Midslow")
@@ -163,10 +169,12 @@
                 else if($rucket->repulsion == "First")
                     $repulsion = 9.5;
                 $performance = 0;
+                {{--　総合性能数値にラケット、フォアラバー、バックラバーの反発数値を足した値を代入　--}}
                 $performance = $performance + $repulsion + $frubber->speed + $brubber->speed;
             @endphp
             <h2 class='performance'>総合性能数値：{{ $performance }}</h2>
             @php
+            {{--　総合性能数値によって、ランク付け　--}}
                 if($performance < 10)
                     $rank = "E";
                 else if(10 <= $performance && $performance < 18)
@@ -182,6 +190,7 @@
             </div>
             </div>
             @php
+            {{--　ラケットの硬さとそれに合わせるラバーの硬さによってお勧めコメントを代入　--}}
                 if($rucket->feeling == "Soft"):
                     if($frubber->hardness <= 30 && $brubber->hardness <= 30):
                         $recommend = "安定感と回転に優れているが、スピードが出しにくい。初心者やブロック主戦型の方にお勧め。";
@@ -221,10 +230,12 @@
             <h2>{{ $recommend }}</h2>
             
             @if(!empty($message))
+            {{--　メッセージ表示　--}}
             <div class="alert alert-primary" role="alert">{{ $message }}</div>
             @endif
         </div>
         <div class="footer">
+            {{--　戻るボタン　--}}
             <a href="/select">戻る</a>
         </div>
         <script src="https://ajax/libs/jquery/1.11.0/jquery.min.js"></script>

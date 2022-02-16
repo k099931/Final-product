@@ -132,6 +132,7 @@
     <body>
         
         <header class="header">
+            {{--　ヘッダー内ロゴ画像　--}}
             <div class="logo"><figure class="image"><img src="https://selectionblog.s3.us-east-2.amazonaws.com/%E3%83%AD%E3%82%B4%E6%96%87%E5%AD%97%E4%BB%98.png" width="250" height="50"></figure></div>
             <div class="nav">
                 <input id="drawer_input" class="drawer_hidden" type="checkbox">
@@ -139,6 +140,7 @@
                 
                 <nav class="nav_content">
                     <ul class="nav_list">
+                        {{--　ハンバーガーメニュー　--}}
                         <li class="nav_item"><a href="/">TOP</a></li><br>
                         <li class="nav_item"><a href="/rubbers">ラバー一覧</a></li><br>
                         <li class="nav_item"><a href="/ruckets">ラケット一覧</a></li><br>
@@ -149,6 +151,7 @@
             </div>
         </header>
         <form action='/rubbers/search' method="POST">
+            {{--　検索ボックス　--}}
            @csrf
            <div class='form-group'>
                <lavel>ラバー名</lavel>
@@ -169,17 +172,20 @@
            </div>
            
            <div class='form-group'>
+               {{--　保存ボタン（検索用）　--}}
                <div class="col-md-offset-2 col-md-5">
                     <button type="submit" class='btn btn-primary btn-block'>検索</button>
                </div>
            </div>
            
         <div class='rubbers'>
+            {{--　ラバー一覧表示　--}}
             @php
                 $id = 0;
             @endphp
             @foreach ($rubbers as $rubber)
                 @if($rubber->id > $id)
+                {{--　メーカー毎に表示　--}}
                   <hr size="5" color="#B3424A">
                   <h1>&emsp;{{ $rubber->maker }}</h1>
                   <hr size="5" color="#B3424A">

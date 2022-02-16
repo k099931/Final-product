@@ -152,6 +152,7 @@
     </head>
     <body>
         <header class="header">
+            {{--　ヘッダー内ロゴ画像　--}}
             <div class="logo"><figure class="image"><img src="https://selectionblog.s3.us-east-2.amazonaws.com/%E3%83%AD%E3%82%B4%E6%96%87%E5%AD%97%E4%BB%98.png" width="250" height="50"></figure></div>
             <div class="nav">
                 <input id="drawer_input" class="drawer_hidden" type="checkbox">
@@ -159,6 +160,7 @@
                 
                 <nav class="nav_content">
                     <ul class="nav_list">
+                        {{--　ハンバーガーメニュー　--}}
                         <li class="nav_item"><a href="/">TOP</a></li><br>
                         <li class="nav_item"><a href="/rubbers">ラバー一覧</a></li><br>
                         <li class="nav_item"><a href="/ruckets">ラケット一覧</a></li><br>
@@ -168,6 +170,7 @@
                 </nav>
             </div>
         </header>
+        {{--　ラバー詳細情報表示　--}}
         <hr size="5" color="#B3424A">
         <h1>&emsp;{{ $rubber->maker }}&emsp;/&emsp;{{ $rubber->name }}</h1>
         <hr size="5" color="#B3424A">
@@ -178,11 +181,12 @@
                 スピード：{{ $rubber->speed }}<br>
                 回転：{{ $rubber->spin }}<br>
                 硬度：{{ $rubber->hardness}}<br>
-                価格：{{ $rubber->price}}
+                価格：{{ $rubber->price}}円
                </h2>
             </span>
         </div>
         <div class='evaluation'>
+            {{--　ラバー評価表示　--}}
             <span style="border-bottom: solid 2px blue;">
                 <hr size="5" color="#B3424A">
                 <h1>&emsp;皆の評価</h1>
@@ -192,6 +196,7 @@
                        <div class="comment">
                            @if( $rubbercomment->rubber_id === $rubber->id )
                               @for ($i = 0; $i <  $rubbercomment->stars ; $i++ )
+                                    {{--　星評価　--}}
                                     <p style="display:inline;"><font size="6" color="#ffcc00">★</font></p>
                               @endfor
                               <p class="author">{{ $rubbercomment->user->name }}</p>
@@ -203,12 +208,14 @@
                 </div>
             </span>
             <form action="/rubbers" method="POST">
+                {{--　ラバー評価書き込み　--}}
                 @csrf
                 <div class="create">
                     <hr size="5" color="#B3424A">
                     <h2>&emsp;コメント</h2>
                     <hr size="5" color="#B3424A">
                         <div class="rate-form">
+                        {{--　星5つ中の評価　--}}
                            <input id="star5" type="radio" name="rubbercomment[stars]" value="5">
                            <label for="star5">★</label>
                            <input id="star4" type="radio" name="rubbercomment[stars]" value="4">
@@ -220,16 +227,19 @@
                            <input id="star1" type="radio" name="rubbercomment[stars]" value="1">
                            <label for="star1">★</label>
                         </div>
+                        {{--　コメント書き込み　--}}
                     <textarea class="col-md-offset-2 col-md-5" name="rubbercomment[comment]" rows="8" placeholder="素晴らしいラバーです。">{{ old('rubbercomment.comment') }}</textarea>
                     <p class="comment_error" style="color:red">{{ $errors->first('rubbercomment.comment') }}</p>
                     <input type="hidden" name="rubbercomment[rubber_id]" value="{{ $rubber->id }}">
                     <input type="hidden" name="rubbercomment[user_id]" value="{{ Auth::user()->id }}">
                 </div>
+                {{--　保存ボタン　--}}
                 <input type="submit" value="保存" class="btn btn-primary"></input>
             </form>
         </div>
         
         <div class="footer">
+            {{--　戻るボタン　--}}
             <a href="/rubbers">戻る</a>
         </div>
         <script>

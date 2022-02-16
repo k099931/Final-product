@@ -120,6 +120,7 @@
                 <label for="drawer_input" class="drawer_open"><span></span></label>
                 
                 <nav class="nav_content">
+                    {{--　ハンバーガーメニュー　--}}
                     <ul class="nav_list">
                         <li class="nav_item"><a href="/">TOP</a></li><br>
                         <li class="nav_item"><a href="/rubbers">ラバー一覧</a></li><br>
@@ -131,6 +132,7 @@
             </div>
         </header>
         <div class="heading">
+            {{--　トップ画像　--}}
             <figure class="image"><img src="https://selectionblog.s3.us-east-2.amazonaws.com/%E8%A6%8B%E5%87%BA%E3%81%97%E7%94%BB%E5%83%8F.png" width="100%" height="50%"></figure>
         </div>
             <div class="explanation">
