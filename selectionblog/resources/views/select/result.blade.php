@@ -156,8 +156,8 @@
                     <h2 class='b_rubber'>バックラバー：{{ $brubber->name }}</h2>
                 @endforeach
             @endif
-            @php
             {{--　ラケットの硬さによって数値の割り振り　--}}
+            @php
                 if($rucket->repulsion == "Slow")
                     $repulsion = 5.5;
                 else if($rucket->repulsion == "Midslow")
@@ -169,12 +169,11 @@
                 else if($rucket->repulsion == "First")
                     $repulsion = 9.5;
                 $performance = 0;
-                {{--　総合性能数値にラケット、フォアラバー、バックラバーの反発数値を足した値を代入　--}}
                 $performance = $performance + $repulsion + $frubber->speed + $brubber->speed;
             @endphp
             <h2 class='performance'>総合性能数値：{{ $performance }}</h2>
-            @php
             {{--　総合性能数値によって、ランク付け　--}}
+            @php
                 if($performance < 10)
                     $rank = "E";
                 else if(10 <= $performance && $performance < 18)
@@ -189,8 +188,8 @@
             <h2 class='rank'>ランク：{{ $rank }}</h2>
             </div>
             </div>
-            @php
             {{--　ラケットの硬さとそれに合わせるラバーの硬さによってお勧めコメントを代入　--}}
+            @php
                 if($rucket->feeling == "Soft"):
                     if($frubber->hardness <= 30 && $brubber->hardness <= 30):
                         $recommend = "安定感と回転に優れているが、スピードが出しにくい。初心者やブロック主戦型の方にお勧め。";

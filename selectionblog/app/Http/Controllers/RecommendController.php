@@ -10,16 +10,32 @@ class RecommendController extends Controller
 {
     public function index()
     {
+        
+        /**
+         *　recommend以下のindex.blade.phpを表示
+         */
+         
         return view('recommend/index');
     }
     
     public function recommend(Request $request)
     {
+        
+         /**
+         *　view側で入力したrequest変数の値をkeyword変数に代入
+         */
+         
         $keyword_group = $request->group;
         $keyword_price = $request->price;
         $keyword_feature = $request->feature;
-        
+       
+         
         if(!empty($keyword_group) && !empty($keyword_price) && !empty($keyword_feature))
+         
+         /**
+         *　view側で全ての質問項目を入力している場合
+         */
+         
         {
             if($keyword_group == 1)
             {
@@ -130,6 +146,11 @@ class RecommendController extends Controller
             }
             
             else
+         
+             /**
+             *　view側の質問項目に対して、未入力が存在する場合
+             */
+         
             {
                 $message = "おすすめのラバーはございません。";
                 return view('recommend/result')->with('message' , $message);
