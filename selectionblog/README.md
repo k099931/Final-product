@@ -62,6 +62,29 @@ MariaDB Server
 ### デプロイ
 heroku (https://selection-blog.herokuapp.com)
 
+## 環境構築手順
+ローカル環境で実行する場合には、このレポジトリをクローン後に以下の手順で環境構築をお願いいたします。
+
+1. Composerでパッケージをインストール
+    composer install
+2. .env.exampleファイルをコピーして.envファイルを作成
+3. MySQL等を使用して本アプリ用のデータベースを作成
+4. .envの以下の項目を設定
+    DB_CONNECTION=データベースの種類（MySQL等）
+　　DB_HOST=ホスト
+    DB_PORT=ポート番号
+    DB_DATABASE=データベース名
+    DB_USERNAME=ユーザ名
+    DB_PASSWORD=パスワード
+5. 以下のコマンドを実行してテーブルを作成
+    php artisan migrate --seed
+6. npmでパッケージをインストールしビルド
+    npm install && npm run dev
+7. アプリケーションキーを設定
+    php artisan key:generate
+8. 最後にサーバを起動して完了となります
+    php artisan serve --port=8080   // ポート番号は適宜変更をお願いします
+
 ## 文責
 
 * 作成者：門田健太郎
