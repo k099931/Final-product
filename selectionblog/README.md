@@ -45,6 +45,15 @@
 7. 選定機能は、ラケットとラバーの相性を表示して、どういう人にお勧めの組み合わせかを表示します。テキストボックスにデータベースに存在する用具の名前を正しく入力してください。
 8. お勧め機能は、ユーザが探しているラバーを、価格、性能の観点から検索し、表示します。質問項目全てに回答してください。
 
+## デモ
+<p align="center">
+    <img src="https://selectionblog.s3.us-east-2.amazonaws.com/TOP%E7%94%BB%E9%9D%A2.png">
+<p>
+
+ ※テストユーザー
+ 　E-mail：test@gmail.com
+ 　password：testuser
+
 ## 開発環境
 ### インフラ
 AWS cloud9
